@@ -1,0 +1,1577 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>姜乐颖-coco-resume</title>
+<meta name="description" content="姜乐颖 coco 的椰子小岛——新媒体内容创作者的个人作品集">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2e4bd; --bg-deep:#ecd9a4;
+  --ink:#43281a; --ink-soft:rgba(67,40,26,.62);
+  --accent:#f5a300; --accent-deep:#e07f00;
+  --leaf:#5f9e56; --sea:#5cb8ae;
+  --card:#fffdf4; --line:rgba(67,40,26,.16);
+  --shadow:0 14px 34px rgba(67,40,26,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);
+  font:400 14px/1.9 "Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  overflow:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit}img{max-width:100%;display:block}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+#cur{position:fixed;z-index:9999;top:-11px;left:-11px;width:22px;height:22px;pointer-events:none;
+  font-size:20px;line-height:22px;text-align:center;filter:drop-shadow(0 2px 2px rgba(67,40,26,.3));display:block}
+@media(pointer:coarse){#cur{display:none}}
+.paw-pop{position:fixed;z-index:9998;pointer-events:none;font-size:16px;animation:pawPop .8s ease-out forwards}
+@keyframes pawPop{0%{opacity:.9;transform:translateY(0) scale(.7)}100%{opacity:0;transform:translateY(-34px) scale(1.15) rotate(14deg)}}
+
+#prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:997;pointer-events:none;opacity:0;transition:opacity .3s}
+body.detail-open #prog{opacity:1}
+#prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
+
+/* 顶栏 */
+.gheader{position:fixed;top:0;left:0;right:0;z-index:940;display:flex;align-items:center;gap:14px;padding:14px 24px;pointer-events:none}
+.gheader .logo{display:flex;align-items:center;gap:9px;pointer-events:auto}
+.gheader .logo .dot{width:11px;height:11px;background:var(--accent);border-radius:2px;transform:rotate(45deg)}
+.gheader .logo b{font:900 16px/1 "Zen Maru Gothic","Noto Sans SC"}
+.gheader .logo small{font:700 9.5px/1 "Zen Maru Gothic";letter-spacing:.28em;color:var(--ink-soft)}
+.nav-pill{margin-left:auto;pointer-events:auto;display:flex;gap:2px;background:#fff;border-radius:99px;
+  padding:5px 8px;box-shadow:0 8px 22px rgba(67,40,26,.12)}
+.nav-pill a{text-decoration:none;font-size:12.5px;font-weight:700;color:var(--ink);
+  padding:6px 13px;border-radius:99px;transition:.2s;white-space:nowrap}
+.nav-pill a:hover{background:var(--accent);color:#fff}
+.menu-button{margin-left:auto;pointer-events:auto;display:none;align-items:center;gap:9px;
+  background:#fff;border-radius:99px;padding:11px 20px;font:700 12px/1 "Zen Maru Gothic";
+  letter-spacing:.24em;box-shadow:0 8px 22px rgba(67,40,26,.12);transition:.25s}
+.menu-button:hover{background:var(--accent);color:#fff}
+.menu-button .bars{display:grid;gap:3px}
+.menu-button .bars i{width:15px;height:2px;background:currentColor;border-radius:2px}
+@media(max-width:1080px){.nav-pill{display:none}.menu-button{display:flex}}
+
+.gmenu{position:fixed;inset:0;z-index:960;background:var(--ink);color:#fff;
+  transform:translateY(-102%);transition:transform .6s cubic-bezier(.22,.8,.25,1);
+  display:flex;flex-direction:column;justify-content:center;padding:90px 8vw 40px;overflow:auto}
+.gmenu.open{transform:none}
+.gmenu-close{position:absolute;top:16px;right:24px;color:#fff;font:700 12px/1 "Zen Maru Gothic";
+  letter-spacing:.24em;background:rgba(255,255,255,.12);border-radius:99px;padding:12px 22px}
+.gmenu-close:hover{background:var(--accent-deep)}
+.gmenu nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 34px;max-width:900px}
+.gmenu nav a{display:flex;align-items:baseline;gap:14px;text-decoration:none;padding:10px 6px;
+  border-bottom:1px dashed rgba(255,255,255,.18);transition:.25s}
+.gmenu nav a .en{font:900 clamp(22px,3.4vw,34px)/1.2 "Zen Maru Gothic";transition:.25s}
+.gmenu nav a .zh{font-size:12.5px;color:rgba(255,255,255,.62);letter-spacing:.14em}
+.gmenu nav a:hover .en{color:var(--accent);transform:translateX(8px)}
+.gmenu-foot{margin-top:44px;font-size:12px;color:rgba(255,255,255,.55)}
+.gmenu-foot b{color:rgba(255,255,255,.85)}
+
+/* ===== 3D 场景 ===== */
+.scene{position:fixed;inset:0;overflow:hidden;
+  background:linear-gradient(180deg,#8fd0e8 0%,#c9e6ec 22%,#eaf2d8 42%,var(--bg) 62%,var(--bg-deep) 100%);
+  transition:transform .65s cubic-bezier(.3,.7,.3,1),opacity .55s ease,filter .65s}
+body.detail-open .scene{transform:scale(1.12);opacity:0;filter:blur(4px);pointer-events:none}
+#stage{position:absolute;inset:0}
+#stage canvas{display:block;cursor:grab}
+#stage canvas.dragging{cursor:grabbing}
+#stage canvas.hover-b{cursor:pointer}
+.drag-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:15;
+  font-size:11.5px;letter-spacing:.18em;color:var(--ink-soft);background:rgba(255,253,244,.8);
+  border:1.5px dashed var(--line);border-radius:99px;padding:6px 18px;pointer-events:none;transition:opacity .6s}
+.drag-hint.hide{opacity:0}
+.day-btn{position:fixed;bottom:24px;right:24px;z-index:960;width:54px;height:54px;border-radius:50%;
+  background:var(--card);box-shadow:0 8px 22px rgba(67,40,26,.22);font-size:25px;line-height:54px;
+  text-align:center;transition:.3s;border:1.5px solid var(--line)}
+.day-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 14px 32px rgba(67,40,26,.3)}
+.lang-btn{position:fixed;bottom:90px;right:24px;z-index:960;width:54px;height:54px;border-radius:50%;
+  background:var(--card);box-shadow:0 8px 22px rgba(67,40,26,.22);font:800 15px/54px "Zen Maru Gothic";
+  text-align:center;color:var(--ink);transition:.3s;border:1.5px solid var(--line)}
+.lang-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 14px 32px rgba(67,40,26,.3)}
+@media(pointer:coarse){.lang-btn{bottom:72px;right:16px;width:46px;height:46px;line-height:46px;font-size:13px}}
+@media(pointer:coarse){.day-btn{bottom:16px;right:16px;width:46px;height:46px;line-height:46px;font-size:21px}}
+/* 建筑 hover 浮空标签 */
+.hover-label{position:fixed;z-index:970;pointer-events:none;transform:translate(-50%,-150%);
+  background:var(--ink);color:#efe3c0;font:900 13px/1 "Zen Maru Gothic","Noto Sans SC";
+  letter-spacing:.16em;text-transform:uppercase;padding:9px 15px;border-radius:11px;
+  box-shadow:0 10px 24px rgba(67,40,26,.32);opacity:0;white-space:nowrap;
+  transition:opacity .12s ease}
+.hover-label.on{opacity:1}
+.hover-label::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--ink);border-bottom:0}
+
+/* 信息卡 */
+.info-card{position:absolute;left:4vw;top:50%;transform:translateY(-58%);z-index:20;
+  width:270px;background:#fff;border-radius:18px;padding:26px 26px 24px;
+  box-shadow:0 18px 44px rgba(67,40,26,.16)}
+.info-card .hello{font:700 10.5px/1 "Zen Maru Gothic";letter-spacing:.3em;color:var(--ink-soft);text-transform:uppercase}
+.info-card .cat{margin-top:12px;font:900 19px/1.4 "Zen Maru Gothic","Noto Sans SC";color:var(--accent-deep)}
+.info-card .cat-en{font:700 10.5px/1 "Zen Maru Gothic";letter-spacing:.32em;color:var(--ink-soft);text-transform:uppercase;margin-top:2px}
+.info-card .tag{margin-top:14px;font-weight:900;font-size:16.5px;line-height:1.7;letter-spacing:.02em}
+.info-card .desc{margin-top:8px;font-size:12px;line-height:1.95;color:var(--ink-soft)}
+.info-card .more-btn{margin-top:16px;display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#fff;border-radius:99px;padding:11px 26px;
+  font:700 12px/1 "Zen Maru Gothic";letter-spacing:.3em;text-decoration:none;transition:.25s}
+.info-card .more-btn:hover{background:var(--accent-deep);transform:translateY(-2px)}
+.info-card .card-dot{position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;background:var(--ink);opacity:.85}
+@media(max-width:1080px){
+  .info-card{left:14px;right:14px;width:auto;top:auto;bottom:12px;transform:none;
+    padding:16px 20px;border-radius:16px;display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center}
+  .info-card .hello,.info-card .cat-en,.info-card .desc,.info-card .card-dot{display:none}
+  .info-card .cat{margin:0;font-size:16px;grid-row:1}
+  .info-card .tag{margin:0;font-size:12px;font-weight:700;grid-row:2}
+  .info-card .more-btn{margin:0;grid-row:1/3;padding:10px 18px}
+}
+
+/* 详情 */
+.detail{position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto;overflow-x:hidden;
+  transform:translateY(70px) scale(.985);opacity:0;pointer-events:none;
+  transition:transform .6s cubic-bezier(.22,.8,.3,1),opacity .45s ease}
+body.detail-open .detail{transform:none;opacity:1;pointer-events:auto}
+.home-fab{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);z-index:950;
+  display:flex;align-items:center;gap:12px;background:#fff;border-radius:99px;padding:15px 34px;
+  font:900 14px/1 "Zen Maru Gothic","Noto Sans SC";letter-spacing:.14em;
+  box-shadow:0 12px 30px rgba(67,40,26,.22);opacity:0;pointer-events:none;transition:.45s cubic-bezier(.25,.8,.3,1)}
+body.detail-open .home-fab{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+.home-fab:hover{background:var(--accent);color:#fff}
+.home-fab .x{font-size:15px;font-weight:900}
+
+.detail-inner{max-width:760px;margin:0 auto;padding:96px 22px 110px}
+.page-head{text-align:center;margin-bottom:16px}
+.sign-board{display:inline-block;position:relative;background:var(--ink);border-radius:12px;
+  padding:14px 34px;border:3px solid #efe3c0;box-shadow:0 8px 20px rgba(67,40,26,.25);margin-bottom:26px}
+.sign-board::before{content:"";position:absolute;inset:5px;border:2px dashed rgba(239,227,192,.5);border-radius:8px}
+.sign-board span{font:900 clamp(16px,3vw,22px)/1 "Zen Maru Gothic";letter-spacing:.3em;color:#efe3c0;text-transform:uppercase}
+.checker{width:64px;height:12px;margin:0 auto 14px;opacity:.9;
+  background:
+   conic-gradient(var(--accent) 90deg,transparent 90deg 180deg,var(--accent) 180deg 270deg,transparent 270deg) 0 0/8px 8px,
+   conic-gradient(transparent 90deg,var(--accent) 90deg 180deg,transparent 180deg 270deg,var(--accent) 270deg) 4px 4px/8px 8px}
+.page-head h1{font:900 clamp(28px,5vw,40px)/1.4 "Zen Maru Gothic","Noto Sans SC";margin:8px 0 4px}
+.page-head .sub{color:var(--ink-soft);font-size:13.5px}
+
+.reveal{opacity:0;transform:translateY(24px)}
+.reveal.on{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+
+.msg p{margin-bottom:1.7em;font-size:15px}
+.msg .sign{margin-top:2.4em;text-align:right;font-weight:700}
+.msg .hl{background:linear-gradient(transparent 62%,rgba(245,163,0,.35) 62%);font-weight:700}
+.edu-band{display:flex;align-items:center;gap:16px;background:var(--card);border:2px solid var(--line);
+  border-radius:16px;padding:18px 24px;margin:30px 0}
+.edu-band .y{font:900 20px/1 "Zen Maru Gothic";color:var(--accent-deep);white-space:nowrap}
+.edu-band .arrow{color:var(--accent);font-weight:900}
+.edu-band b{font-size:15px}
+.edu-band small{display:block;color:var(--ink-soft);font-size:12.5px}
+
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:26px 28px;margin-bottom:24px;transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:8px}
+.card-head h3{font:700 17.5px/1.5 "Noto Sans SC"}
+.card .role{font-size:11.5px;color:#fff;background:var(--accent);border-radius:99px;padding:2px 12px;font-weight:700}
+.card .date{font:500 12px/1 "Zen Maru Gothic";color:var(--ink-soft);letter-spacing:.08em}
+.card .sub{color:var(--ink-soft);font-size:13px;margin-bottom:12px}
+.card ul{list-style:none;margin:6px 0 14px}
+.card ul li{position:relative;padding-left:22px;margin-bottom:8px;font-size:13.5px}
+.card ul li::before{content:"";position:absolute;left:3px;top:10px;width:8px;height:8px;background:var(--accent);transform:rotate(45deg)}
+.works{display:flex;flex-wrap:wrap;gap:8px;border-top:1px dashed var(--line);padding-top:15px}
+.works a,.works span{display:inline-flex;align-items:center;gap:6px;font-size:12px;
+  background:rgba(245,163,0,.1);border:1.5px solid rgba(245,163,0,.4);color:var(--ink);
+  border-radius:99px;padding:4px 13px;text-decoration:none;transition:.25s}
+.works a:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.gallery figure{margin:0;border-radius:12px;overflow:hidden;cursor:zoom-in;position:relative;border:2px solid var(--line);background:#fff}
+.gallery img{width:100%;height:150px;object-fit:cover;transition:transform .4s}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;font-size:11px;color:#fff;text-align:center;
+  background:linear-gradient(transparent,rgba(67,40,26,.78));padding:18px 8px 6px}
+@media(max-width:620px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:118px}}
+
+.skill-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;background:var(--card);
+  border:2px solid var(--line);border-radius:16px;padding:18px 24px;margin-bottom:12px;transition:.3s}
+.skill-row:hover{transform:translateX(6px);box-shadow:var(--shadow)}
+.skill-row b{font-size:14.5px;min-width:150px}
+.skill-row b::before{content:"🌴 "}
+.skill-row span{color:var(--ink-soft);font-size:13px}
+.life-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:620px){.life-grid{grid-template-columns:1fr}}
+.life-card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:20px 22px;transition:.3s}
+.life-card:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:var(--shadow)}
+.life-card .emoji{font-size:25px}
+.life-card b{display:block;margin:7px 0 2px;font-size:14.5px}
+.life-card span{color:var(--ink-soft);font-size:12.5px}
+.postcard{position:relative;background:var(--card);border:2px solid var(--line);border-radius:18px;
+  padding:38px 32px;text-align:center;overflow:hidden}
+.postcard::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 16px,transparent 16px 32px)}
+.postcard .stamp{position:absolute;top:24px;right:24px;width:56px;height:66px;border:2px dashed var(--accent);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;transform:rotate(4deg)}
+.postcard .k{font:700 11px/1 "Zen Maru Gothic";letter-spacing:.34em;color:var(--ink-soft);text-transform:uppercase}
+.postcard .rows{margin:20px 0;font-size:14.5px;line-height:2.4}
+.postcard .rows a{text-decoration:none;color:var(--accent-deep);font-weight:700}
+.postcard .wish{font-size:13px;color:var(--ink-soft)}
+
+.gfooter{margin-top:70px;background:var(--ink);color:#fff;padding:44px 26px 110px}
+.gfooter-in{max-width:760px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-start}
+.gfooter .fbrand b{font:900 16px/1 "Zen Maru Gothic","Noto Sans SC";display:block;margin-bottom:6px}
+.gfooter .fbrand small{font-size:11.5px;color:rgba(255,255,255,.55)}
+.gfooter nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 20px}
+.gfooter nav a{font-size:12px;color:rgba(255,255,255,.75);text-decoration:none;letter-spacing:.1em}
+.gfooter nav a:hover{color:var(--accent)}
+
+#lightbox{position:fixed;inset:0;z-index:990;background:rgba(67,40,26,.78);display:flex;align-items:center;justify-content:center;
+  padding:30px;opacity:0;pointer-events:none;transition:opacity .3s}
+#lightbox.show{opacity:1;pointer-events:auto}
+#lightbox img{max-height:88vh;max-width:92vw;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+#webglFail{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:5;text-align:center;padding:20px}
+#webglFail.show{display:flex}
+
+/* 猫向导引入 */
+.intro{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#bfe3e6 0%,#eaf2d8 34%,var(--bg) 70%);
+  opacity:1;transition:opacity .8s ease;cursor:pointer}
+.intro.done{opacity:0;pointer-events:none}
+.intro-inner{text-align:center;padding:0 24px}
+.intro-welcome{font:700 12px/1 "Zen Maru Gothic";letter-spacing:.5em;color:var(--ink-soft);text-transform:uppercase}
+.intro-title{font:900 clamp(36px,8vw,62px)/1.15 "Zen Maru Gothic","Noto Sans SC";color:var(--ink);margin:16px 0 34px}
+.intro-track{position:relative;height:66px;width:min(430px,82vw);margin:0 auto;overflow:hidden}
+.intro-cat{position:absolute;left:0;top:6px;font-size:46px;line-height:1;filter:drop-shadow(0 4px 4px rgba(67,40,26,.25));
+  animation:catWalk 2.6s ease-in-out forwards}
+@keyframes catWalk{0%{left:-70px}100%{left:calc(100% - 26px)}}
+.intro-paw{position:absolute;bottom:0;font-size:18px;color:var(--accent);opacity:0;
+  animation:pawStep 2.6s ease-out forwards}
+.intro-paw.p1{left:7%;animation-delay:.18s}
+.intro-paw.p2{left:24%;animation-delay:.5s}
+.intro-paw.p3{left:41%;animation-delay:.82s}
+.intro-paw.p4{left:58%;animation-delay:1.14s}
+.intro-paw.p5{left:75%;animation-delay:1.46s}
+@keyframes pawStep{0%{opacity:0;transform:scale(.3) rotate(22deg)}14%{opacity:.9;transform:scale(1) rotate(-8deg)}100%{opacity:.65;transform:scale(.92) rotate(0)}}
+.intro-tip{margin-top:26px;font-size:15px;font-weight:900;color:var(--ink)}
+.intro-skip{margin-top:44px;font:700 12px/1 "Zen Maru Gothic";letter-spacing:.22em;color:var(--ink-soft);
+  border:1.5px dashed var(--line);border-radius:99px;padding:10px 24px;transition:.2s}
+.intro-skip:hover{color:var(--ink);background:rgba(255,255,255,.55)}
+</style>
+</head>
+<body>
+
+<div id="cur">🐾</div>
+<div id="prog"><i></i></div>
+
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <p class="intro-welcome">Coco's Island</p>
+    <h1 class="intro-title">椰子小岛</h1>
+    <div class="intro-track">
+      <span class="intro-cat">🐈</span>
+      <span class="intro-paw p1">🐾</span>
+      <span class="intro-paw p2">🐾</span>
+      <span class="intro-paw p3">🐾</span>
+      <span class="intro-paw p4">🐾</span>
+      <span class="intro-paw p5">🐾</span>
+    </div>
+    <p class="intro-tip">小猫带你上岛逛逛～</p>
+  </div>
+  <button class="intro-skip">点击任意处开始探索</button>
+</div>
+
+<header class="gheader">
+  <a class="logo" href="#" onclick="return false">
+    <span class="dot"></span><b>椰子小岛</b><small>COCO'S ISLAND</small>
+  </a>
+  <nav class="nav-pill" id="navPill"></nav>
+  <button class="menu-button" id="menuOpen"><span class="bars"><i></i><i></i><i></i></span>MENU</button>
+</header>
+
+<div class="gmenu" id="gmenu">
+  <button class="gmenu-close" id="menuClose">CLOSE ✕</button>
+  <nav id="menuNav"></nav>
+  <p class="gmenu-foot"><b>姜乐颖 coco</b>｜上海外国语大学 · 德语语言文学｜上海 · 可远程协作</p>
+</div>
+
+<!-- ===== 3D 城镇场景 ===== -->
+<div class="scene" id="scene">
+  <div id="stage"></div>
+  <div id="webglFail"></div>
+
+  <aside class="info-card" id="infoCard">
+    <span class="card-dot"></span>
+    <p class="hello">Coco's Island</p>
+    <p class="cat" id="icCat">社团经历</p>
+    <p class="cat-en" id="icEn">Club</p>
+    <p class="tag" id="icTag">岛上最早扎根的<br>两棵椰子树</p>
+    <p class="desc" id="icDesc"></p>
+    <a class="more-btn" id="icMore" href="#club">More</a>
+  </aside>
+  <p class="drag-hint" id="dragHint">🖱️ 拖一拖，转着看这座岛</p>
+</div>
+
+<!-- ===== 详情 ===== -->
+<div class="detail" id="detail">
+  <div class="detail-inner" id="detailInner"></div>
+  <footer class="gfooter">
+    <div class="gfooter-in">
+      <div class="fbrand"><b>椰子小岛</b><small>© 2026 姜乐颖 coco · 一颗椰子的旅行路线</small></div>
+      <nav id="footNav"></nav>
+    </div>
+  </footer>
+</div>
+<button class="home-fab" id="homeFab"><span class="x">✕</span>HOME</button>
+<button class="day-btn" id="dayBtn" title="切换白天 / 夜晚">🌙</button>
+<button class="lang-btn" id="langBtn" title="切换中文 / English">EN</button>
+<div class="hover-label" id="hoverLabel"></div>
+
+<div id="lightbox"><img alt="作品放大预览"></div>
+
+<script>
+/* ================= 数据 ================= */
+let lang='zh';
+const clubs=[
+ {t:"上海外国语大学招生办公室",r:"主席",d:"2024.10–至今",
+  items:["团队管理与流程优化：领导 40+ 人团队优化协作流程，负责本科各阶段招生活动全周期管理",
+   "活动策划与效果提升：策划「牵手计划」、高考倒计时系列推送触达 10k+ 人次，带动新生咨询率提升 30%",
+   "宣传策略优化：通过数据驱动优化宣传策略，使招生信息覆盖率达到 95%",
+   "公众号全流程运营：独立负责招办公众号内容策划与全流程运营，涵盖创意构思、文案撰写及排版设计"],
+  works:[["🏅","主席任期 · 40+ 人团队管理证明"],["📈","「牵手计划」系列推送 · 触达 10k+ 人次"],["📰","招办公众号全流程运营作品集（策划 / 文案 / 排版）"],["📊","招生信息覆盖率 95% 数据成果"]]},
+ {t:"德语系外联部",r:"干事",d:"2024.9–2025.6",
+  items:["资源拓展与合作签约：协助完成与棕榈大道、清流教育等知名教育机构的合作对接，推动签约落地，成功引入专项资金 5000 元",
+   "活动策划与执行：参与策划并执行 3 场大型留学主题讲座，通过精准宣传与流程优化，实现参与人数较往期增长 40%",
+   "跨校项目推进：协同跟进跨校德语音乐剧等多个合作项目的落地执行，配合完成资源协调与细节对接，助力部门影响力提升"],
+  works:[["🤝","棕榈大道 / 清流教育合作签约成果 · 专项资金 5000 元"],["🎤","3 场留学主题讲座策划与执行物料"],["🎭","跨校德语音乐剧项目落地记录"]]}
+];
+const projs=[
+ {t:"Cedars AI 创新挑战赛",r:"七作美工",d:"2025.11–2025.6",
+  sub:"项目聚焦 AI 面试小程序的商业化应用，需通过设计清晰传达产品核心功能与市场价值",
+  items:["独立完成商业企划书与路演 PPT 的美工设计与信息可视化",
+   "运用可视化工具制作专业 PPT，突出产品创新点和专利技术",
+   "参与技术文档的视觉化呈现，提升项目展示效果",
+   "目前项目已完成核心功能开发与原型设计，已申请到 4 项相关技术专利，校级二等奖"],
+  works:[["🥈","校级二等奖 · 获奖证明"],
+   ["📘","商业企划书（本人美工设计）","__l5e/assets-v1/969f91ab-a47f-41f8-955f-4753a513c59e/商业企划书（美工已改）_4.pdf"],
+   ["🖼","商业化路演 PPT（本人制作）","__l5e/assets-v1/d0818e8c-ef7f-48b0-aa58-61e73d5ae9e0/0402ppt.pdf"],
+   ["📜","专利 · 一种简历解析与岗位需求建模的人岗匹配模型","__l5e/assets-v1/f956ae36-663e-4db6-a61a-10df8e55cd2c/一种简历解析与岗位需求建模的人岗匹配模型.pdf"],
+   ["📜","专利 · 基于语义分析的智能面试追问方法及装置","__l5e/assets-v1/eb437cae-297a-4349-8ee0-44c1df2d35e0/基于语义分析的智能面试追问方法及装置.pdf"],
+   ["📜","专利 · 面向求职训练的多维面试表现评估方法及平台","__l5e/assets-v1/594d3e85-8af6-490e-ae73-82ebd031baec/面向求职训练的多维面试表现评估方法及平台.pdf"],
+   ["📜","专利 · 基于用户画像的个性化职业发展路径推荐方法","__l5e/assets-v1/6a0f73b0-5ee1-4f83-a55e-849bc3dae00a/基于用户画像的个性化职业发展路径推荐方法.pdf"],
+   ["📱","AI 面试小程序原型设计"]]},
+ {t:"西索小蓝书 · 西索职秀大创",r:"组员",d:"2025.3–至今",
+  sub:"旨在搭建一站式求职支持平台，服务高校学生群体",
+  items:["负责公众号运营，生产求职指导类优质内容 20+ 篇；设计视觉物料 50+ 份，包括简历模板、面试技巧图解等",
+   "建立高校就业服务社群，活跃用户达 800+；累计服务用户超 3000 人，用户满意度达 95%",
+   "获得校级重点项目支持，二期优秀结项，进入三期发展阶段"],
+  works:[["🏆","校级重点项目支持 · 二期优秀结项证明"],["📜","一期结项证书","__l5e/assets-v1/44863830-a88c-4726-a76f-1a62e8033515/xisuo-cert-phase1.jpg"],["📜","二期优秀结项证书","__l5e/assets-v1/458543b0-017e-4a4c-814e-cf22b9db12d9/xisuo-cert-phase2.jpg"],["📝","求职指导类推文 20+ 篇"],["📝","西索小蓝书推文 · 我在西索小蓝书写的文章","https://mp.weixin.qq.com/s/DLK963k8L52j8EyvLXWjHQ"],["🎨","视觉物料 50+ 份（简历模板 / 面试技巧图解）"],["👥","就业服务社群 800+ 活跃用户 · 累计服务 3000+ 人"]]},
+ {t:"个人公众号「美式间歇集」",r:"主理人 · 独立运营",d:"2025–至今",
+  sub:"原创生活随笔与成长记录：从选题、文案到排版设计全部自主完成，每篇在看率均超过 5%",
+  items:["选题与文案创作：以「淡淡的」生活美学与二十岁成长视角进行第一视角深度写作，形成独特文字风格",
+   "排版与视觉设计：自主完成全部推文的排版设计与视觉呈现，保持统一、治愈的账号美学",
+   "数据表现：每篇推文在看率均超过 5%，读者互动稳定"],
+  works:[["📝","推文 · 当下，一切都淡淡的","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483689&idx=1&sn=fc0704cccbad2adb3a5a5d05d029763d&chksm=c565bd97026367b995b130678773919b8f0b77288e5873c226637ef1c6d0872d0137590c9bbe&mpshare=1&scene=1&srcid=0827wRCtG3SOUFidB7NV8qnP&sharer_shareinfo=f91efa38fd08b442c6b856ad51f92fa3&sharer_shareinfo_first=f91efa38fd08b442c6b856ad51f92fa3#rd"],["🕰","推文 · 二十岁，解锁属于我的时间轴","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483722&idx=1&sn=bcda9aa94639a5ee406ef801eb487580&chksm=c5d02b65e2191a8bcb842f6792c3291e2495e542355b37ad6c6cb2fc0eabc918f827a23&mpshare=1&scene=1&srcid=0827fGvSh4p1wKa538aK686d&sharer_shareinfo=2a2c301e62a51e85825ad51a25f16927&sharer_shareinfo_first=2a2c301e62a51e85825ad51a25f16927#rd"],["🌀","推文 · 台风赠予的一周慢时光","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483752&idx=1&sn=5e29ec461b9537c1c4668d960b19853f&chksm=c58d99d0364ac519311776d725d2fd7f7c4a6ca697e43f2a6e55ff54dea8ddd2982441a745a7&mpshare=1&scene=1&srcid=0827GxJX7YovgRKtvSVr0mTr&sharer_shareinfo=cb95a411fd6e0b1a6c7952d7cea6745d&sharer_shareinfo_first=cb95a411fd6e0b1a6c7952d7cea6745d#rd"],["📈","每篇在看率均超过 5% · 文案 + 排版全自主"]]}
+];
+const interns=[
+ {d:"2026.2–2026.9",t:"刀法研究所",r:"新媒体运营",
+  tasks:["公众号全流程运营：独立完成文章排版优化，通过数据分析提出转化率提升策略，推动内容转化效率优化",
+   "视觉资源管理：统筹封面图资源管理，完成素人素材版权沟通与授权，保障内容视觉合规性",
+   "跨平台分发与数据追踪：执行跨平台内容分发，建立数据追踪体系，持续优化内容点击率与转化效果"],
+  works:["内容触达效率提升 10%","公众号排版优化作品","封面图版权授权体系","跨平台数据追踪表"]},
+ {d:"2026.1–2026.4",t:"HALARA",r:"HR-TA 实习生",
+  tasks:["招聘流程标准化：协助搭建校招 offer 汇总 SOP，规范信息整合标准；独立撰写 HR 实习生入职 landing SOP，覆盖入职引导、流程规范等核心模块",
+   "招聘全流程执行：全程跟进社招、校招及实习生招聘项目，完成 pretalk 环节，独立协调面试时间并开展候选人全流程沟通",
+   "多岗位人才筛选：覆盖运营、物流等多岗位招聘，通过精准的简历评估与初筛推进候选人入职"],
+  works:["招聘效率提升 20%","校招 offer 汇总 SOP","HR 实习生入职 landing SOP","20+ 候选人成功入职"]},
+ {d:"2025.10–2026.5",t:"微博",r:"校园大使",
+  tasks:["视觉设计支持：协助完成校园账号节气海报、月报等视觉内容设计，熟练运用 PS/AI 工具",
+   "内容运营协同：参与账号日常内容运营，配合团队完成内容选题、排版优化等工作"],
+  works:["单月稳定产出设计作品 15+","节气海报 / 月报系列","账号互动率提升 25%"],
+  gallery:[
+   ["__l5e/assets-v1/960f7482-dc75-4c78-8a12-e007d5c32a53/weibo-poster-13.png","节气海报 · 冬至"],
+   ["__l5e/assets-v1/1ade8c5f-f183-4587-97b7-129b844d8c31/weibo-poster-9.webp","节气海报 · 立冬"],
+   ["__l5e/assets-v1/60c4afe7-6fef-45b3-8d20-bb2756022adf/weibo-poster-10.png","节气海报 · 小雪"],
+   ["__l5e/assets-v1/476094f9-6011-4bda-b14c-1ab4365165ef/weibo-poster-12.png","节气海报 · 大雪"],
+   ["__l5e/assets-v1/535831ca-fa8b-4ce5-97ee-8eb8b5064f40/weibo-poster-14.webp","节日海报 · 端午"],
+   ["__l5e/assets-v1/e3e30adf-3300-4cfb-9914-f20df26a6d8f/weibo-poster-15.webp","节气海报 · 夏至"],
+   ["__l5e/assets-v1/337c1801-0a7f-444f-a6e6-36645f3502a5/weibo-poster-8.webp","上海微博 · 十月月报"],
+   ["__l5e/assets-v1/a70bfe63-37d3-4342-815d-5727d7638613/weibo-poster-11.png","上海微博 · 十一月月报"],
+   ["__l5e/assets-v1/f0eb8f3f-bf65-41f2-a6be-fc2a51d30547/weibo-poster-16.webp","上海微博 · 四月月报"],
+   ["__l5e/assets-v1/06bfc42d-2bf9-4349-a32c-1f72825bdcf7/weibo-poster-17.webp","上海微博 · 五月月报"],
+   ["__l5e/assets-v1/eb6ed21c-b58b-4fc9-824b-32a73efe19aa/wb-20251222181330_22.webp","节日海报 · 元旦"],
+   ["__l5e/assets-v1/47b560f1-f427-4757-8236-a2c0916926d8/wb-20260102130552_23.webp","节气海报 · 小寒"],
+   ["__l5e/assets-v1/563f24d0-bb89-4c3b-a59c-3ee069b953e6/wb-20260102130552_24.webp","节气海报 · 大寒"],
+   ["__l5e/assets-v1/9df1a251-a553-4ac3-9b9d-1e21a9e7e0e1/wb-20260102130552_25.webp","节气海报 · 立春"],
+   ["__l5e/assets-v1/ca4ee48e-6303-439b-88c9-260eb23267f5/wb-20260407104826_84.webp","节气海报 · 谷雨"],
+   ["__l5e/assets-v1/90432c05-d363-40a8-abaf-d2597b26df3f/wb-20260430130803_88.webp","节气海报 · 芒种"],
+   ["__l5e/assets-v1/88e3126d-6534-408c-bc32-a6f8947f77c0/wb-20260430130803_89.webp","节气海报 · 立夏"],
+   ["__l5e/assets-v1/583497e0-1657-431b-a376-ba5d847eee52/wb-20260430130803_90.webp","节气海报 · 小满"],
+   ["__l5e/assets-v1/faddeefe-f6a7-408c-a5cc-51495e8ee1ef/wb-20260324145207_75.webp","招聘长图 · 微博校园·上海"],
+   ["__l5e/assets-v1/78730c5d-0e64-470d-a5d1-f2c6bc80bb3d/wb-20260406202055_80.webp","上海微博 · 三月月报"]]},
+ {d:"2025.8–2025.11",t:"清流留学教育",r:"新媒体运营实习生",
+  tasks:["内容转化与深度创作：基于直播初稿挖掘核心亮点，协同嘉宾开展二次采访补充深度信息，以第一视角重构推文内容；重点完成老板连麦直播内容的文稿转化",
+   "多平台内容运营：单月独立产出 20+ 篇小红书笔记，通过精准内容推送吸引潜在用户",
+   "视觉物料设计与品牌统一：使用 Canva、稿定设计等工具制作视觉物料，助力提升品牌视觉呈现统一性"],
+  works:["单篇公众号推文点击 10k+","用户互动率提升 30%","小红书笔记 20+ 篇 / 月 · 吸引潜在用户 500+","视觉物料 100+ 份"]},
+ {d:"2025.5–2025.7",t:"外语宙",r:"市场与采编实习生",
+  tasks:["博主资源拓展与访谈策划：通过小红书、微博等社交渠道主动邀约 50+ 知名博主，协同完成访谈主题策划与内容征稿",
+   "内容创作与编稿：独立负责人物访谈内容编稿，撰写系列高质量公众号推文",
+   "内容分发与粉丝增长：协助优化内容分发策略，参与渠道运营与数据跟踪"],
+  works:["邀约 50+ 知名博主","人物访谈系列推文","内容更新效率提升 40%","月粉丝增长 2000+"]}
+];
+const skills=[
+  ["新媒体内容创作","公众号 · 小红书 · 推文 · 内容策划"],
+  ["运营与项目推进","活动策划 · 团队协作 · 流程优化 · 用户运营"],
+  ["视觉设计","PS · AI · Canva · 页面设计"],
+  ["AI探索","AI工具 · 网站搭建 · 自主学习"],
+  ["语言能力","英语 CET-4 / CET-6 均500+ · 德语专四通过"]
+];
+const secrets=[
+  ["🎤","现场追光","演唱会 · 应援设计 · 线下观演"],
+  ["🎮","电竞航线","KPL · 王者荣耀 · 赛事观察"],
+  ["🔍","解谜森林","探案游戏 · 剧情推理 · 影视作品"],
+  ["💞","虚拟旅人","乙女游戏 · 恋与深空（黎深好感度195）"]
+];
+
+/* ================= 英文数据 ================= */
+const clubsEn=[
+ {t:"SISU Admissions Office",r:"Chair",d:"2024.10–present",
+  items:["Team & process optimization: led a 40+ team to streamline collaboration and run the full lifecycle of undergraduate admissions activities",
+   "Campaign planning & impact: planned the \"Hand-in-Hand\" program and the Gaokao countdown series, reaching 10k+ views and lifting inquiry rate by 30%",
+   "Data-driven strategy: optimized the promotion strategy, raising admissions info coverage to 95%",
+   "End-to-end WeChat operation: independently ran content planning and full-process operations — ideation, copywriting and layout design"],
+  works:[["🏅","Chair tenure · proof of leading a 40+ team"],["📈","\"Hand-in-Hand\" series · 10k+ reach"],["📰","Admissions WeChat portfolio (planning / copy / layout)"],["📊","95% admissions info coverage"]]},
+ {t:"German Dept. External Liaison",r:"Officer",d:"2024.9–2025.6",
+  items:["Resource outreach & partnerships: coordinated deals with institutions like Palm Avenue and Qingliu Education, securing 5,000 RMB in funding",
+   "Event planning & execution: helped plan and run 3 large study-abroad talks, boosting attendance by 40% vs. prior terms",
+   "Cross-campus projects: followed through on cross-campus German musical and other collaborations"],
+  works:[["🤝","Signed partnerships · 5,000 RMB funding"],["🎤","3 study-abroad talk materials"],["🎭","Cross-campus German musical records"]]}
+];
+const projsEn=[
+ {t:"Cedars AI Innovation Challenge",r:"Visual Designer (7th author)",d:"2025.11–2025.6",
+  sub:"An AI-interview mini-program focused on commercial application; the design must clearly convey core functions and market value",
+  items:["Independently handled the visual design and info-visualization for the business plan and pitch deck",
+   "Used visualization tools to build a professional deck that highlights product innovation and patented tech",
+   "Visualized technical documents to strengthen the project's presentation",
+   "The project finished core development and prototyping, filed 4 patents, and won a university second prize"],
+  works:[["🥈","University second prize · award certificate"],
+   ["📘","Business plan (my visual design)","__l5e/assets-v1/969f91ab-a47f-41f8-955f-4753a513c59e/商业企划书（美工已改）_4.pdf"],
+   ["🖼","Commercial pitch deck (by me)","__l5e/assets-v1/d0818e8c-ef7f-48b0-aa58-61e73d5ae9e0/0402ppt.pdf"],
+   ["📜","Patent · résumé parsing & job-requirement modeling","__l5e/assets-v1/f956ae36-663e-4db6-a61a-10df8e55cd2c/一种简历解析与岗位需求建模的人岗匹配模型.pdf"],
+   ["📜","Patent · semantic-analysis interview follow-up","__l5e/assets-v1/eb437cae-297a-4349-8ee0-44c1df2d35e0/基于语义分析的智能面试追问方法及装置.pdf"],
+   ["📜","Patent · multi-dimensional interview evaluation","__l5e/assets-v1/594d3e85-8af6-490e-ae73-82ebd031baec/面向求职训练的多维面试表现评估方法及平台.pdf"],
+   ["📜","Patent · personalized career-path recommendation","__l5e/assets-v1/6a0f73b0-5ee1-4f83-a55e-849bc3dae00a/基于用户画像的个性化职业发展路径推荐方法.pdf"],
+   ["📱","AI interview mini-program prototype"]]},
+ {t:"Xisuo Career · Innovation Program",r:"Member",d:"2025.3–present",
+  sub:"A one-stop job-seeking support platform for university students",
+  items:["Ran the official account, producing 20+ career-guide posts and 50+ visual assets (resume templates, interview-skill infographics)",
+   "Built a campus employment community with 800+ active users; served 3,000+ students at 95% satisfaction",
+   "Granted university key-project support with an outstanding Phase-2 completion; now in Phase 3"],
+  works:[["🏆","University key-project support · Phase-2 completion"],["📜","Phase-1 certificate","__l5e/assets-v1/44863830-a88c-4726-a76f-1a62e8033515/xisuo-cert-phase1.jpg"],["📜","Phase-2 outstanding certificate","__l5e/assets-v1/458543b0-017e-4a4c-814e-cf22b9db12d9/xisuo-cert-phase2.jpg"],["📝","20+ career-guide posts"],["📝","My posts on Xisuo","https://mp.weixin.qq.com/s/DLK963k8L52j8EyvLXWjHQ"],["🎨","50+ visual assets (resume templates / infographics)"],["👥","800+ active users · 3,000+ served"]]},
+ {t:"Personal WeChat \"Iced American Interval\"",r:"Founder · solo operation",d:"2025–present",
+  sub:"Original life essays and a growth journal; fully self-produced from ideation to layout, with every post exceeding a 5% recommend rate",
+  items:["Ideation & writing: first-person, in-depth writing on the \"light\" aesthetic of daily life from a twenty-something's view",
+   "Layout & visual design: self-produced all layout and visual design, keeping a consistent, soothing aesthetic",
+   "Performance: every post exceeds a 5% recommend rate with steady reader engagement"],
+  works:[["📝","Post · Right now, everything feels light","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483689&idx=1&sn=fc0704cccbad2adb3a5a5d05d029763d&chksm=c565bd97026367b995b130678773919b8f0b77288e5873c226637ef1c6d0872d0137590c9bbe&mpshare=1&scene=1&srcid=0827wRCtG3SOUFidB7NV8qnP&sharer_shareinfo=f91efa38fd08b442c6b856ad51f92fa3&sharer_shareinfo_first=f91efa38fd08b442c6b856ad51f92fa3#rd"],["🕰","Post · Twenty: unlocking my own timeline","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483722&idx=1&sn=bcda9aa94639a5ee406ef801eb487580&chksm=c5d02b65e2191a8bcb842f6792db961ffc537c697e43f2a6e55ff54dea8ddd2982441a745a7&mpshare=1&scene=1&srcid=0827fGvSh4p1wKa538aK686d&sharer_shareinfo=2a2c301e62a51e85825ad51a25f16927&sharer_shareinfo_first=2a2c301e62a51e85825ad51a25f16927#rd"],["🌀","Post · A slow week gifted by the typhoon","https://mp.weixin.qq.com/s?__biz=Mzk2NDQzMDA5Mg==&mid=2247483752&idx=1&sn=5e29ec461b9537c1c4668d960b19853f&chksm=c58d99d0364ac519311776d725d2fd7f7c4a6ca697e43f2a6e55ff54dea8ddd2982441a745a7&mpshare=1&scene=1&srcid=0827GxJX7YovgRKtvSVr0mTr&sharer_shareinfo=cb95a411fd6e0b1a6c7952d7cea6745d&sharer_shareinfo_first=cb95a411fd6e0b1a6c7952d7cea6745d#rd"],["📈","Every post exceeds 5% recommend rate · copy + layout all by me"]]}
+];
+const internsEn=[
+ {d:"2026.2–2026.9",t:"DaoFa Research Institute",r:"New-Media Operations",
+  tasks:["End-to-end WeChat operations: independently optimized article layout and proposed conversion-rate strategies via data analysis",
+   "Visual asset management: coordinated cover-image resources and handled copyright authorization for UGC materials",
+   "Cross-platform distribution & tracking: executed multi-platform distribution and built a data-tracking system to lift CTR and conversion"],
+  works:["10% lift in content reach","WeChat layout portfolio","Cover-image authorization system","Cross-platform tracking sheets"]},
+ {d:"2026.1–2026.4",t:"HALARA",r:"HR-TA Intern",
+  tasks:["Recruiting standardization: helped build campus-offer aggregation SOPs and independently wrote an HR intern onboarding landing SOP",
+   "End-to-end recruiting: followed through on campus/social/intern hiring, ran pretalk rounds and coordinated candidate communication",
+   "Multi-role screening: covered ops, logistics and more via precise résumé reviews and first-round screening"],
+  works:["20% faster recruiting","Campus-offer aggregation SOP","HR intern onboarding SOP","20+ successful hires"]},
+ {d:"2025.10–2026.5",t:"Weibo",r:"Campus Ambassador",
+  tasks:["Visual design support: produced solar-term posters and monthly reports for the campus account using PS/AI",
+   "Content operations: participated in daily content planning, topic selection and layout optimization"],
+  works:["15+ designs per month","Solar-term posters & monthly reports","25% lift in engagement"],
+  gallery:interns[2].gallery},
+ {d:"2025.8–2025.11",t:"Qingliu Study-Abroad Education",r:"New-Media Operations Intern",
+  tasks:["Content conversion & deep writing: mined core highlights from live drafts, ran follow-up interviews with guests, and rewrote posts in first person",
+   "Multi-platform operations: independently produced 20+ Xiaohongshu notes per month to attract potential users",
+   "Visual design & branding: used Canva and similar tools to keep brand visuals consistent"],
+  works:["10k+ clicks on a single post","30% lift in engagement","20+ Xiaohongshu notes / month · 500+ users","100+ visual assets"]},
+ {d:"2025.5–2025.7",t:"Waiyuzhou",r:"Marketing & Editorial Intern",
+  tasks:["Creator outreach & interview planning: invited 50+ bloggers via Xiaohongshu/Weibo and planned interview topics and pitches",
+   "Content & editing: independently wrote and edited interview features and a series of high-quality WeChat posts",
+   "Distribution & growth: helped optimize distribution and track channel performance"],
+  works:["50+ invited bloggers","Interview-feature series","40% faster content updates","2,000+ monthly followers"]}
+];
+const skillsEn=[
+  ["New-Media Content","WeChat · Xiaohongshu · posts · content planning"],
+  ["Operations & Delivery","event planning · teamwork · process optimization · user ops"],
+  ["Visual Design","PS · AI · Canva · page design"],
+  ["AI Exploration","AI tools · website building · self-learning"],
+  ["Languages","English CET-4/6 (500+) · German Major Test Band 4"]
+];
+const secretsEn=[
+  ["🎤","Live Shows","concerts · fan merch design · offline gigs"],
+  ["🎮","Esports","KPL · Honor of Kings · match watching"],
+  ["🔍","Mystery Forest","puzzle games · story deduction · films & dramas"],
+  ["💞","Virtual Traveler","otome games · Love and Deepspace (Li Shen 195 affection)"]
+];
+
+/* ================= 板块配置 ================= */
+const BOARDS={
+ about:{en:'About',zh:'关于我',tag:'外表安静的椰子<br>内里装着很多想法',entag:'A quiet coconut on the outside<br>full of ideas inside',
+  desc:'上外德语专业 2024→2028。做过校园组织负责人，也做过品牌内容运营；尝试过新媒体创作，也探索过设计、项目管理与人力资源。',
+  endesc:'German major at SISU (2024→2028). Led a campus organization and worked in brand content operations; explored new-media creation, design, project management and HR.'},
+ club:{en:'Club',zh:'社团经历',tag:'岛上最早扎根的<br>两棵椰子树',entag:'The two earliest coconut trees<br>rooted on this island',
+  desc:'上外招生办公室主席：带领 40+ 人团队，推送触达 10k+ 人次；德语系外联部干事：促成机构合作签约，引入专项资金 5000 元。',
+  endesc:'Chair of the SISU Admissions Office: led a 40+ team with 10k+ reach; German Dept. Liaison Officer: secured partnerships and 5,000 RMB in funding.'},
+ proj:{en:'Project',zh:'项目经历',tag:'亲手搭起来的<br>三座小码头',entag:'Three little docks<br>I built with my own hands',
+  desc:'Cedars AI 美工设计（4 项专利 · 校级二等奖）；西索小蓝书大创优秀结项，服务 3000+ 人；公众号「美式间歇集」主理人。',
+  endesc:'Visual design for Cedars AI (4 patents · university second prize); Xisuo innovation program (served 3,000+); founder of the WeChat account "Iced American Interval".'},
+ intern:{en:'Internship',zh:'实习经历',tag:'出海远航的<br>五段航线',entag:'Five routes<br>sailing out to sea',
+  desc:'刀法研究所、HALARA、微博校园大使、清流留学教育、外语宙——从新媒体运营到 HR 招聘执行，五段航线各有收获。',
+  endesc:'DaoFa Institute, HALARA, Weibo Campus Ambassador, Qingliu Education, Waiyuzhou — from new-media operations to HR recruiting, five rewarding routes.'},
+ skills:{en:'Skills',zh:'技能工具箱',tag:'随身携带的<br>一把瑞士军刀',entag:'A Swiss army knife<br>I always carry',
+  desc:'新媒体内容创作 · 运营与项目推进 · 视觉设计（PS / AI / Canva）· AI 探索 · 英语 CET-4/6 与德语专四。',
+  endesc:'New-media content creation · operations & delivery · visual design (PS/AI/Canva) · AI exploration · English CET-4/6 & German Major Test Band 4.'},
+ life:{en:'Off Island',zh:'岛外生活',tag:'退潮之后<br>我也去别的海域玩',entag:'When the tide goes out<br>I wander other seas',
+  desc:'现场追光：演唱会与应援设计；电竞航线：王者荣耀巅峰赛 1900 分；解谜森林：探案游戏与悬疑剧；虚拟旅人：乙游剧情。',
+  endesc:'Live shows: concerts & fan-merch design; esports: Honor of Kings peak tier 1900; mystery: puzzle games & suspense dramas; virtual traveler: otome games.'},
+ contact:{en:'Contact',zh:'小岛邮局',tag:'给岛上寄一封信吧<br>都会回的',entag:'Send the island a letter<br>I always reply',
+  desc:'电话 / 邮箱 / 坐标都在邮局柜台上。希望未来能和有趣的人，在新的故事、新的创意里相遇。',
+  endesc:'Phone / email / coordinates are all at the post-office counter. Hope to meet interesting people in new stories and new ideas.'}
+};
+const ORDER=['about','club','proj','intern','skills','life','contact'];
+
+/* ================= 导航 / 菜单 / footer ================= */
+function renderNav(){
+  const L=lang==='en';
+  document.getElementById('navPill').innerHTML=ORDER.map(k=>`<a href="#${k}" data-open="${k}">${L?BOARDS[k].en:BOARDS[k].zh}</a>`).join('');
+  document.getElementById('menuNav').innerHTML=ORDER.map(k=>`<a href="#${k}" data-open="${k}"><span class="en">${L?BOARDS[k].en:BOARDS[k].zh}</span><span class="zh">${L?BOARDS[k].zh:BOARDS[k].en}</span></a>`).join('');
+  document.getElementById('footNav').innerHTML=ORDER.map(k=>`<a href="#${k}" data-open="${k}">${L?BOARDS[k].en:BOARDS[k].zh}</a>`).join('');
+}
+renderNav();
+
+/* ================= 信息卡 ================= */
+const icCat=document.getElementById('icCat'),icEn=document.getElementById('icEn'),
+      icTag=document.getElementById('icTag'),icDesc=document.getElementById('icDesc'),icMore=document.getElementById('icMore');
+let lastBoard='club';
+function setBoard(key){
+  const b=BOARDS[key];if(!b)return;
+  lastBoard=key;
+  const L=lang==='en';
+  icCat.textContent=L?b.en:b.zh; icEn.textContent=L?b.zh:b.en;
+  icTag.innerHTML=L?b.entag:b.tag; icDesc.textContent=L?b.endesc:b.desc;
+  icMore.href='#'+key;
+}
+setBoard('club');
+
+/* 中英文切换 */
+function setLang(l){
+  lang=l==='en'?'en':'zh';
+  document.getElementById('langBtn').textContent=lang==='en'?'中':'EN';
+  renderNav();
+  if(curPage){openPage(curPage)}else{setBoard(lastBoard)}
+  if(window.__relang)window.__relang();
+}
+document.getElementById('langBtn').onclick=()=>setLang(lang==='en'?'zh':'en');
+
+/* ================= 详情渲染 ================= */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function workChips(ws){
+  if(!ws||!ws.length)return'';
+  return `<div class="works">${ws.map(w=>{
+    const [e,txt,link]=w;
+    return link?`<a href="${esc(link)}" target="_blank" rel="noopener">${e} ${esc(txt)}</a>`:`<span>${e} ${esc(txt)}</span>`;
+  }).join('')}</div>`;
+}
+const clubCard=x=>`<article class="card reveal">
+  <div class="card-head"><h3>${esc(x.t)}</h3><span class="role">${esc(x.r)}</span><span class="date">${esc(x.d)}</span></div>
+  <ul>${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>${workChips(x.works)}</article>`;
+const projCard=x=>`<article class="card reveal">
+  <div class="card-head"><h3>${esc(x.t)}</h3><span class="role">${esc(x.r)}</span><span class="date">${esc(x.d)}</span></div>
+  ${x.sub?`<p class="sub">${esc(x.sub)}</p>`:''}
+  <ul>${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>${workChips(x.works)}</article>`;
+const internCard=x=>`<article class="card reveal">
+  <div class="card-head"><h3>${esc(x.t)}</h3><span class="role">${esc(x.r)}</span><span class="date">${esc(x.d)}</span></div>
+  <ul>${x.tasks.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>${workChips(x.works||[])}
+  ${x.gallery?`<div class="gallery">${x.gallery.map(g=>`<figure data-src="${esc(g[0])}"><img src="${esc(g[0])}" alt="${esc(g[1])}" loading="lazy"><figcaption>${esc(g[1])}</figcaption></figure>`).join('')}</div>`:''}</article>`;
+
+const PAGES={
+  about:{html:()=> lang==='en'?`
+    <div class="msg reveal">
+      <p>Hi, I'm <span class="hl">Leying</span>.</p>
+      <p>Like a coconut — quiet on the outside, full of ideas inside. Since college I've tried many roles: leading a campus organization, working in brand content operations, exploring new-media creation, design, project management and HR.</p>
+      <p>These experiences led me to my direction: <span class="hl">connect users through content, express ideas through design, and turn creativity into action</span>. This is my exploration route — recording experiences, collecting passions, showing skills and sharing life.</p>
+      <p>I like to understand the need first, then find a better way. Whether it's a post, an event or a project, I care about details, feedback and final results. More than finishing tasks, I want every output to be meaningful.</p>
+      <p>Outside work, I collect small joys: going to concerts and designing fan merch for my favorite KPL players; playing Honor of Kings (peak tier 1900); enjoying puzzle web games, suspense dramas and immersive otome stories. These keep me observant and creative, always curious about new things.</p>
+      <p class="sign">— a coconut traveling around the world 🥥</p>
+    </div>
+    <div class="edu-band reveal">
+      <span class="y">2024<span class="arrow">→</span>2028</span>
+      <span><b>Shanghai International Studies University</b><small>German Language & Literature · BA · 2024.9 – 2028.6</small></span>
+    </div>`:
+    `<div class="msg reveal">
+      <p>你好，我是<span class="hl">乐颖</span>。</p>
+      <p>像一颗椰子——外表安静，内里装着很多想法。大学以来，我不断尝试不同的角色：做过校园组织的负责人，也参与过品牌内容运营；尝试过新媒体创作，也探索过设计、项目管理与人力资源。</p>
+      <p>这些经历让我逐渐找到自己的方向：<span class="hl">用内容连接用户，用设计表达想法，用行动把创意落地</span>。这里是一条属于我的探索路线——记录经历，也收藏热爱；展示能力，也分享生活。</p>
+      <p>我习惯先理解需求，再寻找更好的解决方式。无论是一篇推文、一场活动，还是一个项目，都会关注细节、用户反馈和最终效果。相比完成任务，我更希望让每一次输出都有价值。</p>
+      <p>工作之外，我也喜欢收集生活里的小快乐：去线下看演唱会，也会为喜欢的 KPL 选手设计应援手幅；喜欢王者荣耀，曾打到巅峰赛 1900 分；也喜欢探案解密网页游戏、悬疑剧，以及沉浸式体验乙游剧情。这些兴趣让我保持观察力、创造力，也让我始终对新鲜事物保持好奇。</p>
+      <p class="sign">—— 一颗正在环游世界的椰子 🥥</p>
+    </div>
+    <div class="edu-band reveal">
+      <span class="y">2024<span class="arrow">→</span>2028</span>
+      <span><b>上海外国语大学</b><small>德语语言文学 · 本科 · 2024.9 – 2028.6</small></span>
+    </div>`},
+  club:{html:()=>(lang==='en'?clubsEn:clubs).map(clubCard).join('')},
+  proj:{html:()=>(lang==='en'?projsEn:projs).map(projCard).join('')},
+  intern:{html:()=>(lang==='en'?internsEn:interns).map(internCard).join('')},
+  skills:{html:()=>(lang==='en'?skillsEn:skills).map(s=>`<div class="skill-row reveal"><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('')},
+  life:{html:()=>`<div class="life-grid reveal">${(lang==='en'?secretsEn:secrets).map(s=>`<div class="life-card"><span class="emoji">${s[0]}</span><b>${esc(s[1])}</b><span>${esc(s[2])}</span></div>`).join('')}</div>`},
+  contact:{html:()=> lang==='en'?`
+    <div class="postcard reveal">
+      <span class="stamp">🐾</span>
+      <p class="k">A letter from Leying</p>
+      <div class="rows">
+        <p>📞 18753298767 (Qingdao) · 19352192118 (Shanghai)</p>
+        <p>💬 WeChat: 18753298767</p>
+        <p>✉️ <a href="mailto:3851727894@qq.com">3851727894@qq.com</a> · <a href="mailto:leyingjiang940@gmail.com">leyingjiang940@gmail.com</a></p>
+        <p>📍 Base: Shanghai · Qingdao</p>
+      </div>
+      <p class="wish">Hope to meet interesting people in new stories and new ideas.</p>
+    </div>`:
+    `<div class="postcard reveal">
+      <span class="stamp">🐾</span>
+      <p class="k">来自乐颖的一封信</p>
+      <div class="rows">
+        <p>📞 18753298767（青岛）· 19352192118（上海）</p>
+        <p>💬 微信：18753298767</p>
+        <p>✉️ <a href="mailto:3851727894@qq.com">3851727894@qq.com</a> · <a href="mailto:leyingjiang940@gmail.com">leyingjiang940@gmail.com</a></p>
+        <p>📍 常驻：上海 · 青岛</p>
+      </div>
+      <p class="wish">希望未来能和有趣的人，在新的故事、新的创意里相遇。</p>
+    </div>`}
+};
+
+/* ================= 详情切换 ================= */
+const detail=document.getElementById('detail'),detailInner=document.getElementById('detailInner');
+let curPage=null;
+function openPage(key){
+  const b=BOARDS[key];if(!b||!PAGES[key])return;
+  curPage=key;
+  const L=lang==='en';
+  detailInner.innerHTML=`
+    <div class="page-head reveal on">
+      <div class="sign-board"><span>${L?b.en:b.zh}</span></div>
+      <div class="checker"></div>
+      <h1>${L?b.en:b.zh}</h1>
+      <p class="sub">${esc((L?b.entag:b.tag).replace(/<br>/g,'，'))}</p>
+    </div>${PAGES[key].html()}`;
+  document.body.classList.add('detail-open');
+  detail.scrollTop=0;
+  requestAnimationFrame(()=>detailInner.querySelectorAll('.reveal').forEach(el=>el.classList.add('on')));
+}
+function closePage(){curPage=null;document.body.classList.remove('detail-open')}
+window.__co={openPage,closePage,setBoard};
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-open]');
+  if(t){e.preventDefault();closeMenu();openPage(t.dataset.open)}
+});
+document.getElementById('homeFab').onclick=closePage;
+
+const gmenu=document.getElementById('gmenu');
+document.getElementById('menuOpen').onclick=()=>gmenu.classList.add('open');
+document.getElementById('menuClose').onclick=()=>gmenu.classList.remove('open');
+function closeMenu(){gmenu.classList.remove('open')}
+
+/* ================= 滚动进度 + 漂流记录 ================= */
+const bar=document.querySelector('#prog i');
+const KEY='coco-island-voyage';
+const saved=+localStorage.getItem(KEY)||0;
+if(saved>5){const va=document.createElement('p');va.className='hello';va.style.cssText='margin-top:10px;color:var(--accent-deep);letter-spacing:.05em;text-transform:none;font-size:11px';va.textContent=`🏝️ 上次你漂流到了全岛 ${saved}% 的海域`;document.getElementById('infoCard').appendChild(va)}
+detail.addEventListener('scroll',()=>{
+  const max=detail.scrollHeight-detail.clientHeight;
+  const p=max>0?Math.min(100,Math.round(detail.scrollTop/max*100)):0;
+  bar.style.width=p+'%';
+  const best=+localStorage.getItem(KEY)||0;
+  if(p>best)localStorage.setItem(KEY,p);
+},{passive:true});
+
+/* ================= 猫爪光标 ================= */
+const cur=document.getElementById('cur');
+let cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
+addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
+(function loop(){
+  cx+=(tx-cx)*.3;cy+=(ty-cy)*.3;
+  cur.style.transform=`translate(${cx}px,${cy}px)`;
+  requestAnimationFrame(loop);
+})();
+addEventListener('click',e=>{
+  for(let i=0;i<3;i++){
+    const p=document.createElement('span');
+    p.className='paw-pop';p.textContent='🐾';
+    p.style.left=(e.clientX-8+(Math.random()*26-13))+'px';
+    p.style.top=(e.clientY-6-i*6)+'px';
+    p.style.animationDelay=(i*.08)+'s';
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),900);
+  }
+});
+
+/* ================= 灯箱 ================= */
+const lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img');
+document.addEventListener('click',e=>{
+  const f=e.target.closest('.gallery figure');
+  if(f){lbImg.src=f.dataset.src;lb.classList.add('show')}
+});
+lb.addEventListener('click',()=>lb.classList.remove('show'));
+addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('show');closeMenu()}});
+
+/* ================= 猫向导引入 ================= */
+(function(){
+  const intro=document.getElementById('intro');
+  if(!intro)return;
+  let gone=false;
+  const t0=performance.now();
+  const hide=()=>{if(gone)return;gone=true;intro.classList.add('done');setTimeout(()=>intro.remove(),850)};
+  window.__introsFinish=()=>{if(gone)return;setTimeout(hide,Math.max(0,2800-(performance.now()-t0)))};
+  intro.addEventListener('click',hide);
+  setTimeout(window.__introsFinish,2800); /* 最短展示 2.8 秒后收尾 */
+  setTimeout(window.__introsFinish,6000); /* 兜底 */
+})();
+</script>
+
+<!-- ================= Three.js 3D 城镇 ================= -->
+<script type="module">
+(async()=>{
+let THREE;
+try{ THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'); }
+catch(err){ fail(); return; }
+function fail(){
+  const f=document.getElementById('webglFail');
+  f.classList.add('show');
+  f.innerHTML=`<div><p style="font-weight:900;font-size:18px">🏝️ 3D 小镇加载失败了</p>
+  <p style="color:var(--ink-soft);font-size:13px;margin:6px 0 14px">（可能是网络或 WebGL 不可用）不过板块都能正常看：</p>
+  ${ORDER.map(k=>`<button data-open="${k}" style="margin:4px;background:var(--accent);color:#fff;border-radius:99px;padding:8px 18px;font-weight:700">${window.__co?BOARDS[k].zh:k}</button>`).join('')}</div>`;
+}
+
+const stage=document.getElementById('stage');
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+const cv=renderer.domElement;
+
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(34,innerWidth/innerHeight,.1,200);
+
+/* 相机状态：球坐标 + 阻尼 */
+const cam={theta:.72,phi:1.02,dist:23,tgt:new THREE.Vector3(0,1.6,0),
+  tTheta:.72,tPhi:1.02,tDist:23,fly:null};
+function applyCam(){
+  const {theta,phi,dist,tgt}=cam;
+  camera.position.set(tgt.x+dist*Math.sin(phi)*Math.sin(theta),
+                      tgt.y+dist*Math.cos(phi),
+                      tgt.z+dist*Math.sin(phi)*Math.cos(theta));
+  camera.lookAt(tgt);
+}
+
+/* 灯光 */
+const ambient=new THREE.AmbientLight(0xfff6e0,.6);scene.add(ambient);
+const hemi=new THREE.HemisphereLight(0xfff2cf,0xd9bd85,.55);scene.add(hemi);
+const sun=new THREE.DirectionalLight(0xffffff,1.25);
+sun.position.set(14,20,9);
+sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048);
+Object.assign(sun.shadow.camera,{left:-14,right:14,top:14,bottom:-14,far:60});
+sun.shadow.camera.updateProjectionMatrix();
+sun.shadow.bias=-.0004;
+scene.add(sun);
+
+/* ===== 昼夜状态 + 天空天体（3D 太阳/月亮/星星） ===== */
+let dayTarget=0, day=0;
+const sceneEl=document.getElementById('scene');
+const lerp=(a,b,t)=>a+(b-a)*t;
+const nightAmbColor=new THREE.Color('#7f9fc4');
+const nightSunColor=new THREE.Color('#a9c6e6');
+const dayCols=[[0x8fd0e8,0],[0xc9e6ec,.22],[0xeaf2d8,.42],[0xf2e4bd,.62],[0xecd9a4,1]];
+const nightCols=[[0x0b1f3c,0],[0x122a4e,.22],[0x1a3354,.42],[0x16243c,.62],[0x0c1a2e,1]];
+function skyGradient(t){
+  return 'linear-gradient(180deg,'+dayCols.map((c,i)=>{
+    const n=nightCols[i][0];
+    const r=Math.round(lerp((c[0]>>16)&255,(n>>16)&255,t));
+    const g=Math.round(lerp((c[0]>>8)&255,(n>>8)&255,t));
+    const b=Math.round(lerp(c[0]&255,n&255,t));
+    return `rgb(${r},${g},${b}) ${c[1]*100}%`;
+  }).join(',')+')';
+}
+const sky=new THREE.Group();scene.add(sky);
+const sunMesh=new THREE.Mesh(new THREE.SphereGeometry(3.2,24,24),new THREE.MeshBasicMaterial({color:'#ffd77e'}));
+sunMesh.position.set(26,26,-55);sky.add(sunMesh);
+const sunGlow=new THREE.Mesh(new THREE.SphereGeometry(6.5,24,24),new THREE.MeshBasicMaterial({color:'#ffe2a0',transparent:true,opacity:.22}));
+sunGlow.position.copy(sunMesh.position);sky.add(sunGlow);
+const moonMesh=new THREE.Mesh(new THREE.SphereGeometry(2.6,24,24),new THREE.MeshBasicMaterial({color:'#f2f0e6'}));
+moonMesh.position.set(-26,24,-55);moonMesh.visible=false;sky.add(moonMesh);
+const starGroup=new THREE.Group();sky.add(starGroup);
+for(let i=0;i<90;i++){
+  const s=new THREE.Mesh(new THREE.SphereGeometry(.05+Math.random()*.09,5,5),new THREE.MeshBasicMaterial({color:'#ffffff'}));
+  const phi=Math.random()*Math.PI*.42, th=Math.random()*Math.PI*2, r=50;
+  s.position.set(Math.sin(phi)*Math.cos(th)*r, Math.cos(phi)*r, Math.sin(phi)*Math.sin(th)*r);
+  starGroup.add(s);
+}
+starGroup.visible=false;
+const dayBtn=document.getElementById('dayBtn');
+if(dayBtn)dayBtn.addEventListener('click',()=>{dayTarget=dayTarget>0?0:1;dayBtn.textContent=dayTarget>0?'☀️':'🌙';});
+
+/* 环岛海水（分层 + 浪花） */
+const seaOuter=new THREE.Mesh(new THREE.CircleGeometry(32,96),new THREE.MeshLambertMaterial({color:'#58a7bb',transparent:true,opacity:.95}));
+seaOuter.rotation.x=-Math.PI/2;seaOuter.position.y=-1.75;seaOuter.receiveShadow=true;scene.add(seaOuter);
+const seaInner=new THREE.Mesh(new THREE.CircleGeometry(17,72),new THREE.MeshLambertMaterial({color:'#7fd4cf',transparent:true,opacity:.9}));
+seaInner.rotation.x=-Math.PI/2;seaInner.position.y=-1.66;scene.add(seaInner);
+const surf=new THREE.Mesh(new THREE.RingGeometry(9.15,10.9,96),new THREE.MeshLambertMaterial({color:'#f4faf6',transparent:true,opacity:.92}));
+surf.rotation.x=-Math.PI/2;surf.position.y=-1.5;scene.add(surf);
+const surf2=new THREE.Mesh(new THREE.RingGeometry(8.85,9.35,80),new THREE.MeshLambertMaterial({color:'#e4f2ec',transparent:true,opacity:.5}));
+surf2.rotation.x=-Math.PI/2;surf2.position.y=-1.46;scene.add(surf2);
+const waves=[];
+for(let i=0;i<26;i++){
+  const a2=i/26*Math.PI*2+Math.random()*.3,r=9.4+Math.random()*2.4;
+  const dot=new THREE.Mesh(new THREE.CylinderGeometry(.2,.3,.07,10),new THREE.MeshLambertMaterial({color:'#f2f8f4',transparent:true,opacity:.85}));
+  dot.position.set(Math.cos(a2)*r,-1.47,Math.sin(a2)*r);scene.add(dot);
+  waves.push({m:dot});
+}
+
+/* 材质/几何复用 */
+const mats={};
+const M=c=>mats[c]||(mats[c]=new THREE.MeshLambertMaterial({color:c}));
+const BOX=new THREE.BoxGeometry(1,1,1);
+function box(parent,c,x,y,z,w,h,d){
+  const m=new THREE.Mesh(BOX,M(c));
+  m.position.set(x,y,z);m.scale.set(w,h,d);
+  m.castShadow=m.receiveShadow=true;
+  parent.add(m);return m;
+}
+/* 窗户发光材质（独立实例，避开共享缓存，供昼夜切换） */
+const nightMats=[];
+function W(c){
+  const m=new THREE.MeshLambertMaterial({color:c,emissive:new THREE.Color('#ffcf7a'),emissiveIntensity:0});
+  nightMats.push(m);return m;
+}
+function wbox(parent,c,x,y,z,w,h,d){
+  const m=new THREE.Mesh(BOX,W(c));
+  m.position.set(x,y,z);m.scale.set(w,h,d);
+  m.castShadow=m.receiveShadow=true;
+  parent.add(m);return m;
+}
+
+/* ===== 木底座 + 草地 ===== */
+const island=new THREE.Group();scene.add(island);
+const baseC=new THREE.Mesh(new THREE.CylinderGeometry(8.8,9.3,1.2,72),M('#a87b47'));
+baseC.position.y=-.85;baseC.receiveShadow=true;island.add(baseC);
+const baseTop=new THREE.Mesh(new THREE.CylinderGeometry(8.8,8.8,.28,72),M('#c89b62'));
+baseTop.position.y=-.14;baseTop.receiveShadow=true;island.add(baseTop);
+const grass=new THREE.Mesh(new THREE.CylinderGeometry(8.55,8.55,.22,72),M('#8fc07a'));
+grass.position.y=.1;grass.receiveShadow=true;island.add(grass);
+/* 草色补丁 + 小路 */
+[[3.2,.3,'#9fce7f',2.6,1],[-3.8,-1.2,'#9fce7f',2.2,1],[.8,3.4,'#a5d18e',2.4,1],[1.2,-2.2,'#efe3c0',2.8,1.1],[-2.6,-3.2,'#efe3c0',2,1.1]].forEach(([x,z,c,r,ry])=>{
+  const p=new THREE.Mesh(new THREE.CylinderGeometry(r,r,.06,36),M(c));
+  p.position.set(x,.23,z);p.scale.y=1;p.receiveShadow=true;island.add(p);
+});
+
+/* ===== 楼块通用 ===== */
+function tower(g,{w,d,floors,fh,wall,side,win,roof}){
+  const H=floors*fh;
+  box(g,wall,0,H/2,0,w,H,d);
+  box(g,side,0,H+.09,0,w+.22,.18,d+.22);           /* 檐 */
+  for(let i=0;i<floors;i++){
+    const z0=.06,fy=fh*i+fh*.55;
+    for(const sx of[-1,1]){                          /* 前后窗 */
+      wbox(g,win,sx*w*.24,fy,d/2+z0, w*.26,fh*.42,.05);
+      wbox(g,win,sx*w*.24,fy,-d/2-z0, w*.26,fh*.42,.05);
+    }
+    for(const sz of[-1,1]){                          /* 左右窗 */
+      wbox(g,win,w/2+z0,fy,sz*d*.24, .05,fh*.42,d*.26);
+      wbox(g,win,-w/2-z0,fy,sz*d*.24, .05,fh*.42,d*.26);
+    }
+  }
+  box(g,'#b08147',0,.5,d/2+.14,w*.34,1,d*.3).scale.set(w*.34,1,.12); /* 门 */
+  if(roof)roof(g,H);
+  return H;
+}
+/* 像素招牌（CanvasTexture） */
+const signTex={};
+function signFor(key){
+  if(signTex[key])return signTex[key];
+  const cv=document.createElement('canvas');cv.width=512;cv.height=128;
+  const g2=cv.getContext('2d');
+  function draw(){
+    const b=BOARDS[key];
+    const txt=lang==='en'?(b?b.en:key):(b?b.zh:key);
+    g2.clearRect(0,0,512,128);
+    g2.fillStyle='#43281a';
+    g2.beginPath();g2.roundRect(6,6,500,116,20);g2.fill();
+    g2.strokeStyle='rgba(239,227,192,.55)';g2.setLineDash([12,9]);g2.lineWidth=4;
+    g2.beginPath();g2.roundRect(18,18,476,92,12);g2.stroke();
+    g2.setLineDash([]);
+    g2.fillStyle='#efe3c0';g2.textAlign='center';g2.textBaseline='middle';
+    g2.font=lang==='en'?'900 56px "Zen Maru Gothic","Noto Sans SC"':'900 54px "Noto Sans SC","Zen Maru Gothic"';
+    g2.fillText(txt,256,68);
+    signTex[key].texture.needsUpdate=true;
+  }
+  const tex=new THREE.CanvasTexture(cv);tex.anisotropy=4;
+  signTex[key]={texture:tex,redraw:draw};
+  draw();
+  return signTex[key];
+}
+document.fonts&&document.fonts.ready.then(()=>Object.values(signTex).forEach(s=>s.redraw()));
+window.__relang=()=>{Object.values(signTex).forEach(s=>s.redraw());if(window.__redrawBanner)window.__redrawBanner();};
+function addSign(g,key,H,w,d){
+  const dz=(d||2)/2+.12;   /* 招牌贴到楼面正面（朝岛心），不再嵌在楼体中心 */
+  const t=signFor(key).texture;
+  const sideM=M('#43281a');
+  const faceM=new THREE.MeshBasicMaterial({map:t});
+  const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,.62,.1),
+    [sideM,sideM,sideM,sideM,faceM,sideM]);
+  mesh.position.set(0,H+.72,dz);mesh.castShadow=true;
+  g.add(mesh);
+  box(g,'#6d4a26',-w/2+.25,H+.36,dz-.08,.06,.5,.06);
+  box(g,'#6d4a26', w/2-.25,H+.36,dz-.08,.06,.5,.06);
+}
+
+/* ===== 七栋楼（每栋造型都不同） ===== */
+const builds={};
+function makeBuilding(key,x,z,opt){
+  const g=new THREE.Group();
+  g.position.set(x,0,z);
+  g.rotation.y=Math.atan2(-x,-z);   /* 面向中心广场 */
+  const H=tower(g,opt);
+  addSign(g,key,H,opt.signW||2.2,opt.d);
+  if(opt.deco)opt.deco(g,H);
+  island.add(g);
+  builds[key]={group:g,x,z,H};
+  return g;
+}
+function gearMesh(g,x,y,z,r,c){
+  const gm=new THREE.Mesh(new THREE.CylinderGeometry(r,r,.12,10),M(c));
+  gm.position.set(x,y,z);gm.castShadow=true;gm.receiveShadow=true;g.add(gm);
+  for(let i=0;i<6;i++){
+    const a=i/6*Math.PI*2;
+    box(g,c,x+Math.cos(a)*r,y,z+Math.sin(a)*r,.14,.12,.14);
+  }
+}
+/* 01 小岛屋 / 暖黄小木屋：红瓦坡顶 + 天窗 + 门前邮箱/盆栽/小旗 */
+function decoAbout(g,H){
+  box(g,'#e05d4b',0,H+.38,0,1.45,.34,1.45);
+  box(g,'#fdfaf0',0,H+.6,-.4,.7,.38,.4);
+  box(g,'#e05d4b',0,H+.82,-.4,.85,.08,.52);
+  box(g,'#8a5a3a',.72,.26,1.12,.1,.5,.1);
+  box(g,'#e05d4b',.72,.58,1.16,.34,.26,.3);
+  box(g,'#b08147',-.66,.12,1.22,.26,.24,.26);
+  box(g,'#5f9e56',-.66,.3,1.22,.16,.14,.16);
+  box(g,'#6d4a26',.6,.26,1.42,.05,.58,.05);
+  box(g,'#f5a300',.6,.58,1.42,.3,.16,.05);
+}
+/* 02 社团小屋 / 蓝绿两层俱乐部：白尖顶 + 彩旗 + 公告板 + 海报板 + 小椅 */
+function decoClub(g,H){
+  box(g,'#eaf6ff',0,H+.42,0,.95,.6,.9);
+  box(g,'#e05d4b',0,H+.96,.24,.26,.5,.26);
+  for(let i=-1;i<=1;i++){
+    box(g,['#f5a300','#e05d4b','#7cbf6b'][i+1],i*.46,1.28,1.5,.28,.16,.05);
+  }
+  box(g,'#8a5a3a',-.78,.92,1.52,.8,.7,.12);
+  box(g,'#e9d8ac',-.78,.92,1.6,.58,.48,.06);
+  box(g,'#8a5a3a',.78,.9,1.52,.66,.6,.12);
+  box(g,'#f4a7b4',.78,.9,1.6,.46,.34,.06);
+  box(g,'#5aa7d8',.78,1.1,1.6,.42,.2,.06);
+  box(g,'#b08147',-.62,.34,1.4,.5,.1,.5);
+  box(g,'#8a5a3a',-.62,.14,1.18,.07,.36,.07);
+  box(g,'#8a5a3a',-.62,.14,1.62,.07,.36,.07);
+  box(g,'#b08147',-.62,.64,1.6,.5,.54,.08);
+}
+/* 03 项目工作室 / 现代玻璃屋：屋顶天线 + 天台护栏 + 展示板 + 文件箱 */
+function decoProj(g,H){
+  box(g,'#cfe6ee',0,H+.12,0,2.3,.16,2.1);
+  [[-.85,-.85],[.85,-.85],[-.85,.85],[.85,.85]].forEach(([x,z])=>{
+    box(g,'#eaf6ff',x,H+.3,z,.16,.56,.16);
+  });
+  box(g,'#6d4a26',0,H+.42,0,.06,1,.06);
+  box(g,'#e05d4b',0,H+.92,0,.12,.12,.12);
+  box(g,'#8a5a3a',-.7,H-1.15,1.08,.95,.66,.1);
+  box(g,'#eaf6ff',-.7,H-1.15,1.15,.72,.38,.04);
+  box(g,'#b08147',.85,H-.95,1.1,.38,.6,.38);
+  box(g,'#8a5a3a',.85,H-.95,1.32,.42,.06,.38);
+}
+/* 05 技能工坊 / 蓝绿小工坊：工具箱式平顶 + 齿轮/扳手散件 */
+function decoSkills(g,H){
+  box(g,'#8a5a3a',0,H+.3,0,2.4,.18,2.2);
+  box(g,'#e9d8ac',-.7,H+.42,0,.5,.06,.5);
+  box(g,'#e9d8ac',.7,H+.42,0,.5,.06,.5);
+  gearMesh(g,-.85,.14,1.0,.28,'#e8836f');
+  gearMesh(g,.9,.12,1.05,.22,'#f5b93c');
+  box(g,'#9aa3ad',-.5,.08,1.15,.14,.14,.58);
+  box(g,'#9aa3ad',-.68,.12,1.15,.2,.09,.3);
+}
+/* 06 漂流旅馆 / 海边民宿 + 灯塔：行李箱 + 德国旗 + 棕榈树 */
+function decoLife(g,H){
+  const tw=new THREE.Mesh(new THREE.CylinderGeometry(.38,.48,3,12),M('#fdfaf0'));
+  tw.position.set(1.2,1.5,.95);tw.castShadow=true;tw.receiveShadow=true;g.add(tw);
+  box(g,'#e05d4b',1.2,1.5,.95,.82,.3,.82);
+  const lan=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.5,12),M('#43281a'));
+  lan.position.set(1.2,3.1,.95);g.add(lan);
+  const gl=new THREE.Mesh(new THREE.SphereGeometry(.26,12,10),M('#ffd77e'));
+  gl.position.set(1.2,3.38,.95);g.add(gl);
+  box(g,'#8a5a3a',-.92,.26,1.2,.5,.14,.36);
+  box(g,'#b08147',-.92,.4,1.2,.5,.28,.36);
+  box(g,'#6d4a26',-.92,.54,1.2,.08,.06,.08);
+  box(g,'#6d4a26',-.55,.28,1.42,.04,.6,.04);
+  box(g,'#43281a',-.55,.58,1.42,.22,.14,.04);
+  box(g,'#e05d4b',-.55,.44,1.42,.22,.14,.04);
+  box(g,'#f5b93c',-.55,.3,1.42,.22,.14,.04);
+}
+/* 07 小岛邮局 / 粉橙小邮局：橙圆顶 + 信箱 + 明信片 + 漂流瓶 */
+function decoContact(g,H){
+  box(g,'#f5a300',0,H+.36,0,1.15,.4,.9);
+  box(g,'#e8836f',0,H+.58,0,.72,.28,.6);
+  box(g,'#e05d4b',.9,.6,1.0,.28,.5,.28);
+  box(g,'#f5a300',.9,.92,.98,.34,.3,.3);
+  box(g,'#fdfaf0',.9,.92,1.14,.26,.2,.04);
+  box(g,'#f4a7b4',-.8,.34,1.18,.42,.3,.05);
+  box(g,'#f5b93c',-.52,.28,1.18,.42,.3,.05);
+  box(g,'#5cb8ae',-.66,.42,1.18,.42,.14,.05);
+  const bt=new THREE.Mesh(new THREE.CylinderGeometry(.12,.12,.34,10),M('#bfe6e0'));
+  bt.position.set(-.1,.24,1.2);bt.rotation.z=Math.PI/2;g.add(bt);
+  box(g,'#8a5a3a',-.32,.24,1.2,.1,.1,.1);
+}
+/* 04 实习咖啡馆 / 米白棕咖啡馆：遮阳棚 + 咖啡杯 + OPEN 挂牌 + 门前桌椅与自行车 */
+function decoIntern(g,H){
+  box(g,'#8a5a3a',0,H+.3,0,2.1,.16,1.9);
+  for(let i=-1;i<=1;i++)box(g,i%2?'#f5a300':'#fdf8ee',i*.55,H+.42,0,.5,.06,1.6);
+  box(g,'#8a5a3a',0,H+.5,0,2.2,.08,2.0);
+  /* 门头 OPEN 挂牌 */
+  box(g,'#43281a',0,H+.95,-.6,.7,.34,.1);
+  box(g,'#fdf8ee',0,H+.95,-.56,.6,.26,.06);
+  /* 咖啡杯招牌 */
+  const cup=new THREE.Group();cup.position.set(.78,H+.9,-.45);g.add(cup);
+  box(cup,'#fffdf4',0,0,0,.4,.5,.4);
+  box(cup,'#fdf8ee',.45,.02,0,.12,.1,.3);
+  box(cup,'#8a5a3a',0,.3,0,.44,.07,.44);
+  /* 门前小桌 + 椅子 */
+  box(g,'#8a5a3a',-1.05,.42,-1.0,.72,.07,.72);
+  box(g,'#8a5a3a',-1.05,.66,-1.0,.09,.42,.09);
+  for(const sx of[-.3,.3])box(g,'#c89b62',-1.05+sx,.3,-1.0+.15,.24,.26,.24);
+  /* 门口自行车 */
+  box(g,'#43281a',1.08,.32,-1.02,.07,.52,.07);
+  box(g,'#c89b62',1.08,.58,-1.02,.07,.52,.07);
+  box(g,'#f5a300',.82,.34,-1.02,.5,.05,.05);
+  box(g,'#f5a300',1.34,.34,-1.02,.5,.05,.05);
+}
+makeBuilding('about',-4.6,2.1,{w:2,d:2,floors:3,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#f5a300',sign:'ABOUT',
+  deco:decoAbout});
+makeBuilding('club',.4,-4.5,{w:2.6,d:2.2,floors:5,fh:.9,wall:'#5aa7d8',side:'#3f8cc4',win:'#eaf6ff',sign:'CLUB',signW:2,
+  deco:decoClub});
+makeBuilding('proj',4.6,-1.7,{w:2.2,d:2,floors:4,fh:.85,wall:'#cfe6ee',side:'#a9ccd6',win:'#eaf6ff',sign:'PROJECT',signW:2.6,
+  deco:decoProj});
+makeBuilding('skills',4.9,2.5,{w:2.1,d:1.9,floors:2,fh:1,wall:'#7cbf6b',side:'#5f9e56',win:'#eaf6ff',sign:'SKILLS',signW:2.3,
+  deco:decoSkills});
+makeBuilding('life',-2,4.5,{w:1.9,d:1.8,floors:2,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#5cb8ae',sign:'LIFE',signW:1.8,
+  deco:decoLife});
+makeBuilding('contact',2.7,4.7,{w:2,d:1.8,floors:2,fh:.95,wall:'#f6c1c6',side:'#e59aa5',win:'#fff6ec',sign:'POST',signW:1.8,
+  deco:decoContact});
+makeBuilding('intern',-3.7,-2.3,{w:2,d:1.9,floors:2,fh:.95,wall:'#fdf8ee',side:'#e6d9be',win:'#f5a300',sign:'INTERN',signW:2.2,
+  deco:decoIntern});
+palm(-3.4,5.7,.8);
+
+/* ===== 摩天轮（实习） ===== */
+const fer=new THREE.Group();
+fer.position.set(-5.2,0,-2.4);
+fer.rotation.y=Math.atan2(5.2,2.4);
+island.add(fer);
+box(fer,'#c89b62',0,.25,0,3,0.5,3);
+box(fer,'#b08147',-1,1.9,0,.22,3.6,.22).rotation.z=.32;
+box(fer,'#b08147', 1,1.9,0,.22,3.6,.22).rotation.z=-.32;
+const wheel=new THREE.Group();
+wheel.position.set(0,4.05,0);
+fer.add(wheel);
+const rim=new THREE.Mesh(new THREE.TorusGeometry(2.1,.1,10,40),M('#f5b93c'));
+rim.castShadow=true;wheel.add(rim);
+const rim2=new THREE.Mesh(new THREE.TorusGeometry(1.45,.05,8,32),M('#f5b93c'));
+wheel.add(rim2);
+for(let i=0;i<8;i++){
+  const sp=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,4.2,6),M('#f5b93c'));
+  sp.rotation.z=i*Math.PI/8;wheel.add(sp);
+}
+const capC=['#e8836f','#5aa7d8','#7cbf6b','#f5a300','#e8836f','#5aa7d8','#7cbf6b','#f5a300'];
+const cabins=[];
+for(let i=0;i<8;i++){
+  const a2=i*Math.PI/4;
+  const c2=box(wheel,capC[i],2.1*Math.cos(a2),-2.1*Math.sin(a2)-.35,0,.5,.42,.42);
+  cabins.push(c2);
+}
+box(wheel,'#43281a',0,0,.18,.3,.3,.3);
+/* 摩天轮夜间彩灯：轮缘小灯泡 + 中心灯，夜晚随窗户一起发光 */
+for(let i=0;i<16;i++){
+  const a3=i/16*Math.PI*2;
+  const bl=new THREE.Mesh(new THREE.SphereGeometry(.09,8,8),W(i%2?'#ffd77e':'#ff9f6e'));
+  bl.position.set(2.1*Math.cos(a3),-2.1*Math.sin(a3),.14);wheel.add(bl);
+}
+const hubLight=new THREE.Mesh(new THREE.SphereGeometry(.24,12,10),W('#fff3c4'));
+hubLight.position.set(0,0,.2);wheel.add(hubLight);
+
+/* ===== 夜间烟花（火箭升空 + 拖尾 + 放射状条纹爆发） ===== */
+const fireworks=[];        // 爆发中的烟花：{streaks:[{m,vx,vy,vz,life}],flash,age}
+const rockets=[];          // 升空中的火箭：{m,trail,col,vy,burstY}
+let fwTimer=.8;
+const streakGeo=new THREE.BoxGeometry(.07,.07,.9);
+const rocketGeo=new THREE.SphereGeometry(.14,8,8);
+const flashGeo=new THREE.SphereGeometry(.18,10,8);
+const FW_COLS=['#ffd77e','#ff9f6e','#ff7d9c','#7fd4ff','#b9f5a0','#ffe08a'];
+const fwMat=(c,o)=>new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:o==null?1:o,blending:THREE.AdditiveBlending,depthWrite:false});
+
+/* 火箭从海面附近升空，留下一道向上拖尾 */
+function launchRocket(){
+  const a=Math.random()*Math.PI*2, r=7+Math.random()*6;
+  const col=new THREE.Color(FW_COLS[Math.floor(Math.random()*FW_COLS.length)]);
+  const cx=Math.cos(a)*r, cz=Math.sin(a)*r;
+  const m=new THREE.Mesh(rocketGeo, fwMat('#ffffff'));
+  m.position.set(cx,.7,cz);
+  const trail=new THREE.Mesh(new THREE.BoxGeometry(.05,.05,1.4), fwMat(col,.7));
+  trail.position.set(cx,.4,cz); trail.rotation.x=Math.PI/2;
+  scene.add(m); scene.add(trail);
+  rockets.push({m,trail,col,vy:8.5+Math.random()*3.5,burstY:10+Math.random()*4});
+}
+
+/* 到顶点爆发：中心闪光 + 对称放射状条纹 */
+function burstFirework(r){
+  const cx=r.m.position.x, cy=r.burstY, cz=r.m.position.z;
+  const flash=new THREE.Mesh(flashGeo, fwMat('#ffffff'));
+  flash.position.set(cx,cy,cz); scene.add(flash);
+  const streaks=[];
+  for(let i=0;i<52;i++){
+    const m=new THREE.Mesh(streakGeo, fwMat(r.col));
+    m.position.set(cx,cy,cz);
+    const th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
+    const dx=Math.sin(ph)*Math.cos(th), dy=Math.sin(ph)*Math.sin(th), dz=Math.cos(ph);
+    const sp=5+Math.random()*4.5;
+    m.lookAt(cx+dx, cy+dy, cz+dz);
+    m.scale.set(1,1,1.4+Math.random()*.8);
+    scene.add(m);
+    streaks.push({m,vx:dx*sp,vy:dy*sp,vz:dz*sp,life:0});
+  }
+  fireworks.push({streaks,flash,age:0});
+}
+
+/* ===== 小火车（环岛轨道） ===== */
+const railPts=[];
+for(let i=0;i<=36;i++){const a2=i/36*Math.PI*2;railPts.push(new THREE.Vector3(Math.cos(a2)*7.6,0,Math.sin(a2)*7.6))}
+const curve=new THREE.CatmullRomCurve3(railPts,true);
+for(const off of[-.28,.28]){
+  const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,90,.045,6,true),M('#8a6a45'));
+  tube.position.y=.42;tube.geometry.scale?0:0;
+  tube.position.x=off*0; /* 双轨：平移曲线难，用双半径曲线 */
+  island.add(tube);
+}
+/* 重画双轨：半径 7.32 / 7.88 */
+island.children.filter(c=>c.geometry&&c.geometry.type==='TubeGeometry').forEach(c=>island.remove(c));
+for(const r of[7.32,7.88]){
+  const pts=[];for(let i=0;i<=36;i++){const a2=i/36*Math.PI*2;pts.push(new THREE.Vector3(Math.cos(a2)*r,.42,Math.sin(a2)*r))}
+  const tube=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),90,.05,6,true),M('#8a6a45'));
+  island.add(tube);
+}
+for(let i=0;i<40;i++){
+  const a2=i/40*Math.PI*2;
+  const tie=box(island,'#6d4a26',Math.cos(a2)*7.6,.36,Math.sin(a2)*7.6,1.1,.07,.18);
+  tie.rotation.y=-a2;
+}
+const train=new THREE.Group();island.add(train);
+const cars=[];
+[[0,'#e05d4b'],[.62,'#f5b93c'],[1.24,'#f5b93c']].forEach(([off,c],i)=>{
+  const car=new THREE.Group();
+  box(car,c,0,.28,0,i?1.3:1.5,.62,i?1.3:1.5).scale.set(i?0.62:0.72,.62,i?0.62:0.72);
+  if(!i){box(car,'#43281a',0,.85,-.5,.3,.5,.3);box(car,'#fffdf4',0,.85,.5,.55,.34,.06)}
+  else box(car,'#fffdf4',0,.42,.62,.4,.26,.06);
+  cars.push(car);train.add(car);
+});
+let trainT=0;
+
+/* ===== 中央广场：大椰树 + COCO'S ISLAND 木牌 ===== */
+const plaza=new THREE.Mesh(new THREE.CylinderGeometry(2.1,2.3,.16,36),M('#e9d8ac'));
+plaza.position.set(0,.24,0);plaza.receiveShadow=true;island.add(plaza);
+palm(0,0,1.85);
+(function(){
+  const cv=document.createElement('canvas');cv.width=1280;cv.height=288;
+  const g2=cv.getContext('2d');
+  const tex=new THREE.CanvasTexture(cv);tex.anisotropy=8;
+  function draw(){
+    g2.clearRect(0,0,1280,288);
+    g2.fillStyle='#6d4a26';g2.fillRect(0,0,1280,288);
+    g2.fillStyle='#8a5a3a';g2.fillRect(11,11,1258,266);
+    g2.strokeStyle='rgba(239,227,192,.5)';g2.lineWidth=8;g2.strokeRect(34,34,1212,222);
+    g2.fillStyle='#efe3c0';g2.textAlign='center';g2.textBaseline='middle';
+    g2.font='900 100px "Zen Maru Gothic","Noto Sans SC"';
+    g2.fillText("COCO'S ISLAND",640,108);
+    g2.font='700 42px "Zen Maru Gothic","Noto Sans SC"';
+    g2.fillText('A little island made of my stories',640,218);
+    tex.needsUpdate=true;
+  }
+  draw();
+  const board=new THREE.Mesh(new THREE.BoxGeometry(3.6,.82,.16),
+    [M('#6d4a26'),M('#6d4a26'),M('#6d4a26'),M('#6d4a26'),new THREE.MeshBasicMaterial({map:tex}),M('#6d4a26')]);
+  board.position.set(0,1.32,1.6);board.castShadow=true;island.add(board);
+  box(island,'#6d4a26',-1.55,.45,1.6,.08,1.05,.08);
+  box(island,'#6d4a26',1.55,.45,1.6,.08,1.05,.08);
+  document.fonts&&document.fonts.ready.then(draw);
+})();
+/* ===== 飞机拖横幅：标题+副标题，绕岛一直在天上飞 ===== */
+const plane=new THREE.Group();scene.add(plane);
+(function(){
+  box(plane,'#e05d4b',0,0,0,.18,.18,1.0);          // 机身
+  box(plane,'#f5b93c',0,0,.56,.12,.12,.14);        // 机头
+  box(plane,'#fffdf4',0,.02,.02,1.25,.04,.32);     // 主机翼
+  box(plane,'#fffdf4',0,.12,.42,.55,.03,.2);       // 尾翼
+  box(plane,'#e05d4b',0,.24,.42,.04,.22,.18);      // 垂尾
+  plane.userData.prop=box(plane,'#43281a',0,0,.62,.62,.05,.1); // 螺旋桨
+  plane.add(new THREE.PointLight('#ffd9a0',1.1,9));            // 机身灯，夜里也能看清飞机
+  plane.scale.setScalar(1.5);
+})();
+const bannerTex=(function(){
+  const cv=document.createElement('canvas');cv.width=1536;cv.height=352;
+  const g2=cv.getContext('2d');
+  const tex=new THREE.CanvasTexture(cv);tex.anisotropy=8;
+  function draw(){
+    g2.clearRect(0,0,1536,352);
+    g2.fillStyle='#6d4a26';g2.fillRect(0,0,1536,352);
+    g2.fillStyle='#8a5a3a';g2.fillRect(14,14,1508,324);
+    g2.strokeStyle='rgba(239,227,192,.6)';g2.lineWidth=10;g2.strokeRect(40,40,1456,272);
+    g2.fillStyle='#efe3c0';g2.textAlign='center';g2.textBaseline='middle';
+    g2.font='900 128px "Zen Maru Gothic","Noto Sans SC"';
+    g2.fillText("COCO'S ISLAND",768,128);
+    g2.font='700 54px "Zen Maru Gothic","Noto Sans SC"';
+    g2.fillText(lang==='en'?'A little island made of my stories':'一颗用我的故事搭起来的小岛',768,258);
+    tex.needsUpdate=true;
+  }
+  draw();
+  document.fonts&&document.fonts.ready.then(draw);
+  return {tex,redraw:draw};
+})();
+const banner=new THREE.Sprite(new THREE.SpriteMaterial({map:bannerTex.tex,transparent:true,depthWrite:false}));
+banner.scale.set(6.6,1.52,1);
+scene.add(banner);
+window.__redrawBanner=bannerTex.redraw;
+let planeT=0;
+function palm(x,z,s){
+  const t=new THREE.Group();t.position.set(x,0,z);t.scale.setScalar(s);island.add(t);
+  const trunk=box(t,'#8a6a45',0,1.1,0,.22,2.2,.22);trunk.rotation.z=.08;
+  for(let i=0;i<5;i++){
+    const leaf=box(t,i%2?'#6aa85e':'#5f9e56',Math.cos(i*1.26)*.5,2.25,Math.sin(i*1.26)*.5,1.15,.09,.5);
+    leaf.rotation.y=-i*1.26;leaf.rotation.z=-.35;
+  }
+  box(t,'#7a4b20',.12,2.05,.1,.16,.16,.16);
+}
+palm(1.9,1.5,1);palm(-1.7,-1.3,.85);
+/* 灌木丛 */
+function bush(x,z,s){
+  const b=new THREE.Group();b.position.set(x,0,z);b.scale.setScalar(s);island.add(b);
+  box(b,'#5f9e56',-.18,.18,.05,.5,.36,.5);
+  box(b,'#6aa85e',.2,.24,-.12,.55,.46,.55);
+  box(b,'#7cbf6b',0,.28,.18,.44,.5,.44);
+}
+[[3.3,-3.7,.9],[5.3,.3,.8],[-5.4,1.3,1],[-3,5.5,.9],[1.5,-1.8,.6],[5.4,-3.3,.85]].forEach(([x,z,s])=>bush(x,z,s));
+/* 野花 */
+const flowerCols=['#f5a300','#e8836f','#e05d4b','#f4a7b4'];
+[[-4.1,-.7],[-.7,4.3],[3.3,3.2],[5.7,3],[-5.7,3.6],[2.5,-4],[-4.5,4.6],[.4,-2.3]].forEach(([x,z],i)=>{
+  const f=new THREE.Group();f.position.set(x,.16,z);island.add(f);
+  box(f,flowerCols[i%4],0,.11,0,.16,.22,.16);
+  box(f,'#7cbf6b',.16,0,.04,.05,.16,.05);
+});
+/* 石板小径：广场连到每栋楼 */
+const stoneM=M('#cdb78e');
+function stone(x,z){
+  const s=new THREE.Mesh(new THREE.CylinderGeometry(.16,.19,.07,8),stoneM);
+  s.position.set(x,.22,z);s.receiveShadow=true;island.add(s);
+}
+function path(x2,z2,n){
+  for(let i=1;i<n;i++){
+    const t=i/n;
+    stone(x2*t+(Math.random()-.5)*.22, z2*t+(Math.random()-.5)*.22);
+  }
+}
+[[-4.6,2.1],[.4,-4.5],[4.6,-1.7],[4.9,2.5],[-2,4.5],[2.7,4.7],[-3.7,-2.3],[-5.2,-2.4]].forEach(([x,z])=>path(x,z,7));
+/* ===== 岛屿杂件：长椅/栅栏/礁石/海鸟 ===== */
+function bench(x,z,ry){
+  const b=new THREE.Group();b.position.set(x,.14,z);b.rotation.y=ry;island.add(b);
+  for(const sx of[-.68,.68]){box(b,'#8a5a3a',sx,.2,0,.14,.4,.14);box(b,'#8a5a3a',sx,.2,-.22,.14,.4,.14);}
+  box(b,'#b08147',0,.46,-.12,1.5,.09,.5);
+  const bk=box(b,'#b08147',0,.86,-.32,1.5,.1,.6);bk.rotation.x=-.14;
+  box(b,'#8a5a3a',0,1.1,-.34,.1,.42,.1);
+}
+bench(1.6,-1.2,.9);bench(-2.4,1.1,-.4);
+function fenceRow(x,z,n,ry){
+  const f=new THREE.Group();f.position.set(x,0,z);f.rotation.y=ry;island.add(f);
+  for(let i=0;i<=n;i++){
+    const px=-n*.55+i*1.1;
+    box(f,'#8a5a3a',px,.5,0,.1,1,.1);
+    if(i<n)box(f,'#b08147',px+.55,.72,0,1.1,.08,.08);
+  }
+}
+fenceRow(0,6.4,6,.9);fenceRow(-6.6,-1,5,.35);
+function rock(x,z,s){
+  const r=new THREE.Group();r.position.set(x,-.02,z);r.scale.setScalar(s);island.add(r);
+  box(r,'#9aa3ad',0,.14,0,.6,.28,.5);box(r,'#8b95a0',.22,.1,.1,.34,.2,.3);
+}
+rock(-5.6,-4.4,1);rock(6.2,4.6,1.2);rock(4.6,-5,.9);rock(-6.6,2.8,.8);
+/* 海鸟（V 形，绕岛飞行） */
+const birds=[];
+[[10,0,9.6,.55],[12,2.5,11,1.05],[-11,4.7,10.4,.8]].forEach(([r,a0,y,s],i)=>{
+  const b=new THREE.Group();scene.add(b);
+  box(b,'#fff',0,0,0,.5,.05,.08);
+  box(b,'#fff',-.17,-.02,-.03,.28,.04,.07).rotation.z=Math.PI*.2;
+  box(b,'#fff',.17,-.02,-.03,.28,.04,.07).rotation.z=-Math.PI*.2;
+  birds.push({g:b,r,a0,y,sp:(i%2?s:-s)});
+});
+const interactables=[];
+for(const [x,z] of [[-3.4,.6],[3.6,-.6],[.6,-3.4],[-.5,3.6]]){
+  const lamp=new THREE.Group();lamp.position.set(x,0,z);
+  lamp.userData.key='lamp';lamp.userData.on=false;
+  island.add(lamp);
+  box(lamp,'#6d4a26',0,.55,0,.09,1.1,.09);
+  const bulbMat=new THREE.MeshBasicMaterial({color:'#ffd77e'});
+  const bulb=new THREE.Mesh(new THREE.SphereGeometry(.16,10,8),bulbMat);
+  bulb.position.y=1.2;lamp.add(bulb);
+  const hit=new THREE.Mesh(new THREE.SphereGeometry(.75,8,8),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));
+  hit.position.y=.8;lamp.add(hit);
+  const pl=new THREE.PointLight(0xffd77e,0,9,2);pl.position.set(0,1.5,0);lamp.add(pl);
+  lamp.userData.bulbMat=bulbMat;lamp.userData.pl=pl;
+  interactables.push(lamp);
+}
+function toggleLamp(lamp){
+  lamp.userData.on=!lamp.userData.on;
+  lamp.userData.pl.intensity=lamp.userData.on?2.4:0;
+  lamp.userData.bulbMat.color.set(lamp.userData.on?'#fff3b0':'#ffd77e');
+}
+/* ===== 云（3D voxel 云） ===== */
+const clouds=[];
+[[-9,7.5,-6,1],[8,8.2,4,1.3],[2,9,-8,.9]].forEach(([x,y,z,s],i)=>{
+  const cl=new THREE.Group();cl.position.set(x,y,z);cl.scale.setScalar(s);scene.add(cl);
+  box(cl,'#fffdf4',0,0,0,1.6,.5,.9);box(cl,'#fffdf4',.9,.2,0,1,.4,.8);box(cl,'#fffdf4',-.8,.15,.1,.8,.35,.7);
+  clouds.push({g:cl,v:.0035+i*.0012});
+});
+/* 飘浮 voxel */
+const cubes3=[];
+[[[6,5.2,-5],'#f5a300'],[[-7,5.8,3],'#e8836f'],[[3,6.4,6],'#5aa7d8'],[[-3,6.8,-6],'#7cbf6b']].forEach(([[x,y,z],c],i)=>{
+  const m=box(scene,c,x,y,z,.34,.34,.34);
+  cubes3.push({m,y0:y,ph:i*1.3});
+});
+
+/* ===== 交互：拖拽 / hover / 点击进楼 ===== */
+const ray=new THREE.Raycaster(),pv=new THREE.Vector2();
+let hoverKey=null,dragging=false,moved=false,px=0,py=0,downOnBuild=null;
+function pick(cx2,cy2){
+  pv.set(cx2/innerWidth*2-1,-(cy2/innerHeight)*2+1);
+  ray.setFromCamera(pv,camera);
+  const groups=Object.values(builds).map(b=>b.group).concat(interactables);
+  const hits=ray.intersectObjects(groups,true);
+  if(!hits.length)return null;
+  let o=hits[0].object;while(o&&!o.userData.key)o=o.parent;
+  return o||null;
+}
+for(const [k,b] of Object.entries(builds))b.group.userData.key=k;
+/* 每栋楼 hover 时的浮空标签文案 */
+const HOVER_TXT={about:{zh:'认识我',en:'ABOUT ME'},club:{zh:'40+ 场活动',en:'40+ EVENTS'},proj:{zh:'12 个项目',en:'12 PROJECTS'},intern:{zh:'今日营业',en:'OPEN TODAY'},skills:{zh:'我的工具箱',en:'MY TOOLBOX'},life:{zh:'岛外生活',en:'OFF ISLAND'},contact:{zh:'写信给我',en:'WRITE TO ME'}};
+const hoverLabel=document.getElementById('hoverLabel');
+function showHoverLabel(k,x,y){
+  if(k&&k!=='lamp'&&HOVER_TXT[k]){
+    hoverLabel.textContent=(HOVER_TXT[k][lang]||HOVER_TXT[k].en);
+    hoverLabel.style.left=x+'px';
+    hoverLabel.style.top=y+'px';
+    hoverLabel.classList.add('on');
+  }else{
+    hoverLabel.classList.remove('on');
+  }
+}
+cv.addEventListener('pointerdown',e=>{dragging=true;moved=false;px=e.clientX;py=e.clientY;cv.classList.add('dragging');cv.setPointerCapture(e.pointerId)});
+addEventListener('pointermove',e=>{
+  if(dragging){
+    const dx=e.clientX-px,dy=e.clientY-py;
+    if(Math.abs(dx)+Math.abs(dy)>4)moved=true;
+    cam.tTheta+=dx*.0055;
+    cam.tPhi=Math.min(1.35,Math.max(.55,cam.tPhi-dy*.004));
+    px=e.clientX;py=e.clientY;
+    document.getElementById('dragHint').classList.add('hide');
+    hoverLabel.classList.remove('on');
+  }else if(!document.body.classList.contains('detail-open')){
+    const o=pick(e.clientX,e.clientY);
+    const k=o?o.userData.key:null;
+    if(k!==hoverKey){
+      hoverKey=k;
+      cv.classList.toggle('hover-b',!!k);
+      if(k&&k!=='lamp')window.__co.setBoard(k);
+    }
+    showHoverLabel(k,e.clientX,e.clientY);
+  }
+});
+addEventListener('pointerup',e=>{
+  cv.classList.remove('dragging');
+  if(dragging&&!moved){
+    const o=pick(e.clientX,e.clientY);
+    if(o){
+      if(o.userData.key==='lamp')toggleLamp(o);
+      else flyTo(o.userData.key);
+    }
+  }
+  dragging=false;
+  hoverLabel.classList.remove('on');
+});
+cv.addEventListener('wheel',e=>{
+  e.preventDefault();
+  cam.tDist=Math.min(38,Math.max(5,cam.tDist+e.deltaY*.02));
+},{passive:false});
+/* 触屏双指缩放略 */
+
+const HOME={tTheta:.72,tPhi:1.02,tDist:23};
+function flyTo(key){
+  const b=builds[key];
+  const a2=Math.atan2(b.x,b.z);
+  const to={theta:a2+Math.PI+.35,phi:1.12,dist:6.5,tgt:new THREE.Vector3(b.x,1.4,b.z)};
+  cam.fly={t:0,from:{theta:cam.theta,phi:cam.phi,dist:cam.dist,tgt:cam.tgt.clone()},to};
+  cam.tTheta=to.theta;cam.tPhi=to.phi;cam.tDist=to.dist;
+  setTimeout(()=>window.__co.openPage(key),680);
+}
+function flyHome(){
+  const to={theta:HOME.tTheta,phi:HOME.tPhi,dist:HOME.tDist,tgt:new THREE.Vector3(0,1.6,0)};
+  cam.fly={t:0,from:{theta:cam.theta,phi:cam.phi,dist:cam.dist,tgt:cam.tgt.clone()},to};
+  cam.tTheta=to.theta;cam.tPhi=to.phi;cam.tDist=to.dist;
+}
+document.getElementById('homeFab').addEventListener('click',()=>setTimeout(flyHome,120));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.body.classList.contains('detail-open'))flyHome()});
+
+/* ===== 动画循环 ===== */
+let introFired=false;
+const clock=new THREE.Clock();
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+(function tick(){
+  requestAnimationFrame(tick);
+  const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+  /* 相机 */
+  if(cam.fly){
+    cam.fly.t+=dt/.85;
+    const k=ease(Math.min(1,cam.fly.t));
+    const f=cam.fly.from,o=cam.fly.to;
+    cam.theta=f.theta+(o.theta-f.theta)*k;
+    cam.phi=f.phi+(o.phi-f.phi)*k;
+    cam.dist=f.dist+(o.dist-f.dist)*k;
+    cam.tgt.lerpVectors(f.tgt,o.tgt,k);
+    if(cam.fly.t>=1)cam.fly=null;
+  }else{
+    cam.theta+=(cam.tTheta-cam.theta)*.09;
+    cam.phi+=(cam.tPhi-cam.phi)*.09;
+    cam.dist+=(cam.tDist-cam.dist)*.09;
+  }
+  applyCam();
+  /* 昼夜过渡 */
+  day+=(dayTarget-day)*.03;
+  ambient.intensity=lerp(.6,.25,day);
+  hemi.intensity=lerp(.55,.18,day);
+  sun.intensity=lerp(1.25,.15,day);
+  sun.color.set('#ffffff').lerp(nightSunColor,day);
+  ambient.color.set('#fff6e0').lerp(nightAmbColor,day);
+  for(const m of nightMats)m.emissiveIntensity=day*.95;
+  const isNight=day>.5;
+  sunMesh.visible=!isNight;sunGlow.visible=!isNight;moonMesh.visible=isNight;starGroup.visible=isNight;
+  sceneEl.style.background=skyGradient(day);
+  /* 海鸟绕飞 */
+  birds.forEach(bd=>{
+    const a=bd.a0+t*bd.sp;
+    bd.g.position.set(Math.cos(a)*bd.r, bd.y+Math.sin(t*2.2+bd.r)*.5, Math.sin(a)*bd.r);
+    bd.g.rotation.y=-a;
+  });
+  /* 摩天轮 */
+  wheel.rotation.z+=dt*.32;
+  cabins.forEach(c=>c.rotation.z=-wheel.rotation.z);
+  /* 夜间烟花：火箭升空 -> 爆发 -> 条纹坠落渐隐 */
+  if(isNight){
+    fwTimer-=dt;
+    if(fwTimer<=0){launchRocket();fwTimer=.9+Math.random()*1.5;}
+  }else{
+    while(rockets.length){const r=rockets.pop();scene.remove(r.m);scene.remove(r.trail);}
+    while(fireworks.length){const f=fireworks.pop();f.streaks.forEach(s=>scene.remove(s.m));if(f.flash)scene.remove(f.flash);}
+  }
+  for(let i=rockets.length-1;i>=0;i--){
+    const r=rockets[i];
+    r.m.position.y+=r.vy*dt;
+    r.trail.position.y=r.m.position.y-.75;
+    r.trail.material.opacity=.6*Math.min(1,r.m.position.y/4);
+    if(r.m.position.y>=r.burstY){
+      scene.remove(r.m);scene.remove(r.trail);
+      burstFirework(r);rockets.splice(i,1);
+    }
+  }
+  for(let i=fireworks.length-1;i>=0;i--){
+    const f=fireworks[i];f.age+=dt;
+    if(f.flash){
+      f.flash.scale.setScalar(1+f.age*7);
+      f.flash.material.opacity=Math.max(0,1-f.age/.32);
+      if(f.age>.32){scene.remove(f.flash);f.flash=null;}
+    }
+    let alive=false;
+    for(const p of f.streaks){
+      p.life+=dt;
+      const dg=Math.max(0,1-1.2*dt);
+      p.vx*=dg; p.vy=p.vy*dg-2.6*dt; p.vz*=dg;
+      p.m.position.x+=p.vx*dt; p.m.position.y+=p.vy*dt; p.m.position.z+=p.vz*dt;
+      const sp2=p.vx*p.vx+p.vy*p.vy+p.vz*p.vz;
+      if(sp2>.02)p.m.lookAt(p.m.position.x+p.vx,p.m.position.y+p.vy,p.m.position.z+p.vz);
+      const o=Math.max(0,1-p.life/2);
+      p.m.material.opacity=o; p.m.scale.z=Math.max(.06,.9*o);
+      if(p.life<2)alive=true;
+    }
+    if(!alive&&f.age>.4){f.streaks.forEach(s=>scene.remove(s.m));fireworks.splice(i,1);}
+  }
+  /* 小火车 */
+  trainT=(trainT+dt*.016)%1;
+  cars.forEach((car,i)=>{
+    const tt=(trainT+i*.028)%1;
+    const p=curve.getPointAt(tt),p2=curve.getPointAt((tt+.002)%1);
+    car.position.set(p.x,0,p.z);
+    car.lookAt(p2.x,0,p2.z);
+  });
+  /* 海水浪花 */
+  surf.scale.setScalar(1+Math.sin(t*1.7)*.03);
+  surf2.scale.setScalar(1+Math.sin(t*1.7+1.3)*.045);
+  waves.forEach((w,i)=>{w.m.scale.setScalar(.75+Math.abs(Math.sin(t*2.2+i*.6))*.5);w.m.position.y=-1.46+Math.sin(t*2.2+i*.6)*.05});
+  /* 飞机拖横幅绕岛飞行 */
+  planeT=(planeT+dt*.045)%1;
+  {
+    const pa=planeT*Math.PI*2;
+    const pr=10.5, py=9+Math.sin(pa*2)*.5;
+    const px=Math.cos(pa)*pr, pz=Math.sin(pa)*pr;
+    const tx=-Math.sin(pa), tz=Math.cos(pa);
+    plane.position.set(px,py,pz);
+    plane.lookAt(px+tx,py,pz+tz);
+    plane.rotation.z+=.34;
+    if(plane.userData.prop)plane.userData.prop.rotation.z+=dt*18;
+    banner.position.set(px-tx*2.3, py-.15, pz-tz*2.3);
+  }
+  /* 云 */
+  clouds.forEach(c=>{c.g.position.x+=c.v;if(c.g.position.x>14)c.g.position.x=-14});
+  /* 飘浮方块 */
+  cubes3.forEach(c=>{c.m.position.y=c.y0+Math.sin(t*1.4+c.ph)*.35;c.m.rotation.y+=dt*.6});
+  /* hover 楼浮动（夸张：抬升 + 放大 + 摇摆） */
+  for(const [k,b] of Object.entries(builds)){
+    const on=(k===hoverKey);
+    const tY=on?0.5:0, tS=on?1.16:1;
+    b.group.position.y+=(tY-b.group.position.y)*.16;
+    const s=b.group.scale.x+(tS-b.group.scale.x)*.16;
+    b.group.scale.set(s,s,s);
+    const tilt=on?Math.sin(t*6)*.06:0;
+    b.group.rotation.z+=(tilt-b.group.rotation.z)*.12;
+  }
+  renderer.render(scene,camera);
+  if(!introFired){introFired=true;if(window.__introsFinish)setTimeout(window.__introsFinish,450)}
+})();
+
+addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+})();
+</script>
+</body>
+</html>
